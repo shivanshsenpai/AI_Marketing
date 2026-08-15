@@ -1,0 +1,18 @@
+{
+  "name": "shivspill-ai-marketing",
+  "version": "1.0.0",
+  "description": "ShivSpill - Next-Gen AI Marketing Agency Web Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "start": "npx -y serve ."
+  },
+  "keywords": [
+    "ai",
+    "marketing",
+    "agency",
+    "shivspill"
+  ],
+  "author": "ShivSpill AI",
+  "license": "MIT"
+}
