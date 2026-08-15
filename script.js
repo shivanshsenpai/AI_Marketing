@@ -1,6 +1,6 @@
 /* ==========================================================================
    SHIVSPILL - NEXT-GEN AI MARKETING AGENCY
-   Interactive JavaScript Architecture
+   Theme: High-Contrast Minimalist Monochrome Architecture
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. NEURAL CANVAS PARTICLE SYSTEM
+   1. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
    ========================================================================== */
 function initNeuralCanvas() {
   const canvas = document.getElementById('neural-canvas');
@@ -32,25 +32,25 @@ function initNeuralCanvas() {
     height = canvas.height = window.innerHeight;
   });
 
-  const mouse = { x: width / 2, y: height / 2, radius: 150 };
+  const mouse = { x: width / 2, y: height / 2, radius: 120 };
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
 
-  const particleCount = Math.min(Math.floor(width / 18), 80);
+  const particleCount = Math.min(Math.floor(width / 24), 50);
   const particles = [];
 
   class Particle {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.8;
-      this.vy = (Math.random() - 0.5) * 0.8;
-      this.radius = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, ';
-      this.alpha = Math.random() * 0.5 + 0.2;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 1.5 + 1;
+      this.color = Math.random() > 0.5 ? 'rgba(255, 255, 255, ' : 'rgba(161, 161, 170, ';
+      this.alpha = Math.random() * 0.4 + 0.1;
     }
 
     update() {
@@ -60,15 +60,14 @@ function initNeuralCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      // Mouse gravity interaction
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < mouse.radius) {
         const force = (mouse.radius - distance) / mouse.radius;
-        this.x -= (dx / distance) * force * 1.5;
-        this.y -= (dy / distance) * force * 1.5;
+        this.x -= (dx / distance) * force * 1.2;
+        this.y -= (dy / distance) * force * 1.2;
       }
     }
 
@@ -76,10 +75,7 @@ function initNeuralCanvas() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = this.color + this.alpha + ')';
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = '#8b5cf6';
       ctx.fill();
-      ctx.shadowBlur = 0;
     }
   }
 
@@ -90,7 +86,6 @@ function initNeuralCanvas() {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Connect nodes with lines if close
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
@@ -100,13 +95,13 @@ function initNeuralCanvas() {
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 120) {
+        if (dist < 100) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          const opacity = (1 - dist / 120) * 0.15;
-          ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-          ctx.lineWidth = 1;
+          const opacity = (1 - dist / 100) * 0.1;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+          ctx.lineWidth = 0.8;
           ctx.stroke();
         }
       }
@@ -119,7 +114,7 @@ function initNeuralCanvas() {
 }
 
 /* ==========================================================================
-   2. FUTURISTIC WEB AUDIO API SOUND ENGINE
+   2. REFINED AUDIO FEEDBACK ENGINE
    ========================================================================== */
 let audioCtx = null;
 let soundEnabled = false;
@@ -141,7 +136,7 @@ function initSoundEngine() {
         audioCtx.resume();
       }
       soundIcon.className = 'fa-solid fa-volume-high';
-      soundIcon.style.color = 'var(--accent-cyan)';
+      soundIcon.style.color = '#ffffff';
       playFuturisticSound('enable');
     } else {
       soundIcon.className = 'fa-solid fa-volume-xmark';
@@ -149,7 +144,6 @@ function initSoundEngine() {
     }
   });
 
-  // Attach sound triggers to buttons
   document.querySelectorAll('.btn, .tone-chip, .tab-btn').forEach(elem => {
     elem.addEventListener('mouseenter', () => {
       if (soundEnabled) playFuturisticSound('hover');
@@ -174,46 +168,44 @@ function playFuturisticSound(type) {
 
     if (type === 'hover') {
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(440, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.05);
-      gain.gain.setValueAtTime(0.02, now);
-      gain.gain.linearRampToValueAtTime(0.001, now + 0.05);
+      osc.frequency.setValueAtTime(500, now);
+      gain.gain.setValueAtTime(0.015, now);
+      gain.gain.linearRampToValueAtTime(0.001, now + 0.04);
       osc.start(now);
-      osc.stop(now + 0.05);
+      osc.stop(now + 0.04);
     } else if (type === 'click') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(300, now);
-      osc.frequency.exponentialRampToValueAtTime(120, now + 0.08);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.linearRampToValueAtTime(0.001, now + 0.08);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(350, now);
+      gain.gain.setValueAtTime(0.03, now);
+      gain.gain.linearRampToValueAtTime(0.001, now + 0.06);
       osc.start(now);
-      osc.stop(now + 0.08);
+      osc.stop(now + 0.06);
     } else if (type === 'enable') {
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(220, now);
-      osc.frequency.exponentialRampToValueAtTime(660, now + 0.2);
-      gain.gain.setValueAtTime(0.08, now);
-      gain.gain.linearRampToValueAtTime(0.001, now + 0.2);
+      osc.frequency.setValueAtTime(300, now);
+      osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+      gain.gain.setValueAtTime(0.04, now);
+      gain.gain.linearRampToValueAtTime(0.001, now + 0.15);
       osc.start(now);
-      osc.stop(now + 0.2);
+      osc.stop(now + 0.15);
     }
   } catch (e) {
-    console.warn('Audio Context tone play warning:', e);
+    console.warn('Audio Context error:', e);
   }
 }
 
 /* ==========================================================================
-   3. HERO TYPEWRITER EFFECT
+   3. TYPEWRITER EFFECT
    ========================================================================== */
 function initTypewriter() {
   const el = document.getElementById('typewriter');
   if (!el) return;
 
   const phrases = [
-    'Neural Intelligence',
     'Autonomous AI Engines',
-    'Generative Ad Creatives',
-    'Predictive Audience Vectors'
+    'Neural Growth Models',
+    'Predictive Bidding',
+    'High-Scale Ad Systems'
   ];
 
   let phraseIdx = 0;
@@ -231,15 +223,15 @@ function initTypewriter() {
       charIdx++;
     }
 
-    let speed = isDeleting ? 40 : 80;
+    let speed = isDeleting ? 30 : 70;
 
     if (!isDeleting && charIdx === current.length) {
-      speed = 2200; // Pause at full phrase
+      speed = 2000;
       isDeleting = true;
     } else if (isDeleting && charIdx === 0) {
       isDeleting = false;
       phraseIdx = (phraseIdx + 1) % phrases.length;
-      speed = 500;
+      speed = 400;
     }
 
     setTimeout(type, speed);
@@ -256,12 +248,11 @@ function initAiFeedStreamer() {
   if (!feedContainer) return;
 
   const logPool = [
-    'Optimized bid velocity on Meta Campaign #842 (+18.4% CTR)',
-    'Detected high-value conversion vector in London demographic',
-    'Auto-generated 24 high-converting UGC hooks for TikTok',
-    'Lowered customer acquisition cost by -$18.40 on PMax',
-    'Reallocated budget from ad-group #3 to peak performing variant #7',
-    'Predictive model scaled daily ad budget safely to $42.5k'
+    'Reallocated ad spend to peak performing lookalike segment',
+    'Optimized audience bids across Google PMax (+18.4% CTR)',
+    'Generated 24 high-converting creative variations',
+    'Lowered target acquisition cost by -$18.40',
+    'Scaled daily campaign budget to $42.5k safely'
   ];
 
   setInterval(() => {
@@ -277,15 +268,14 @@ function initAiFeedStreamer() {
     if (feedContainer.children.length > 3) {
       feedContainer.removeChild(feedContainer.lastChild);
     }
-  }, 4500);
+  }, 5000);
 }
 
 /* ==========================================================================
-   5. LIVE INTERACTIVE AI CONTENT ENGINE SIMULATOR
+   5. LIVE AI CONTENT ENGINE DEMO
    ========================================================================== */
 function initAiContentDemo() {
   const brandInput = document.getElementById('brandInput');
-  const industrySelect = document.getElementById('industrySelect');
   const generateBtn = document.getElementById('generateAiBtn');
   const toneChips = document.querySelectorAll('.tone-chip');
   
@@ -307,51 +297,45 @@ function initAiContentDemo() {
 
   const presetOutputs = {
     'Bold & Disruptive': {
-      hook: (brand) => `"Stop Wasting 40% of Your Ad Spend on Legacy Audiences."`,
-      body: (brand) => `${brand} leverages hyper-predictive neural bidding to target prospective buyers 12 seconds before they even realize they need your product. Zero guesswork. Pure algorithmic scaling.`,
-      tags: '#AIConversion #ScalingEngine #ShivSpill #HighROAS'
+      hook: (brand) => `"Eliminate Unproductive Ad Spend."`,
+      body: (brand) => `${brand} leverages predictive neural models to target intent-ready buyers before competitors bid. Automated precision scaling.`,
+      tags: '#AIConversion #ScalingEngine #ShivSpill'
     },
     'Urgent / High Conversion': {
-      hook: (brand) => `"Why Top Brands Are Switching to ${brand}'s AI Ad Engine Today."`,
-      body: (brand) => `Unlock instant 4.8x ROAS multipliers. Our neural algorithms dynamically optimize ad copy and visual hooks in real-time, eliminating unprofitable clicks instantly.`,
-      tags: '#GrowthHacking #AdScaling #ShivSpillAI #ConversionOptimization'
+      hook: (brand) => `"How Top Brands Scale with ${brand}'s Neural Engine."`,
+      body: (brand) => `Unlock instant 4.8x ROAS multipliers. Our autonomous bidding matrix optimizes creative variants in real-time.`,
+      tags: '#GrowthEngine #AdScaling #ShivSpill'
     },
     'Sophisticated Luxe': {
-      hook: (brand) => `"Crafting Digital Dominance for ${brand}."`,
-      body: (brand) => `Precision-engineered marketing for discerning brands. Experience bespoke audience curation and automated visual storytelling designed for maximum lifetime customer value.`,
-      tags: '#LuxuryMarketing #NeuralAesthetic #BrandScale #ShivSpill'
+      hook: (brand) => `"Architecting Digital Dominance for ${brand}."`,
+      body: (brand) => `Precision-engineered marketing for luxury brands. Bespoke audience vectors and algorithmic storytelling.`,
+      tags: '#BrandScale #ShivSpill #NeuralArchitecture'
     },
     'Data-Driven B2B': {
       hook: (brand) => `"Predictive Account-Based Scaling Engine for ${brand}."`,
-      body: (brand) => `Reduce customer acquisition costs by up to 64% using server-side neural attribution models and automated LinkedIn decision-maker targeting.`,
-      tags: '#B2BGrowth #EnterpriseAI #AttributionMatrix #ShivSpill'
+      body: (brand) => `Reduce customer acquisition costs by up to 64% using server-side neural attribution models.`,
+      tags: '#B2BGrowth #EnterpriseAI #ShivSpill'
     }
   };
 
   if (generateBtn) {
     generateBtn.addEventListener('click', () => {
-      const brand = brandInput.value.trim() || 'Lumina Glow';
+      const brand = brandInput.value.trim() || 'Lumina';
       const template = presetOutputs[activeTone] || presetOutputs['Bold & Disruptive'];
 
       outputState.textContent = 'Synthesizing...';
-      outputState.style.color = 'var(--accent-amber)';
-
       generateBtn.disabled = true;
-      generateBtn.style.opacity = '0.7';
 
       setTimeout(() => {
         hookEl.textContent = template.hook(brand);
         bodyEl.textContent = template.body(brand);
         tagsEl.textContent = template.tags;
 
-        outputState.textContent = 'Neural Synthesis Complete';
-        outputState.style.color = 'var(--accent-emerald)';
-
+        outputState.textContent = 'Synthesis Complete';
         generateBtn.disabled = false;
-        generateBtn.style.opacity = '1';
 
-        showToast(`✨ Generated high-converting AI script for "${brand}"!`);
-      }, 700);
+        showToast(`Generated script for "${brand}"`);
+      }, 500);
     });
   }
 
@@ -359,14 +343,14 @@ function initAiContentDemo() {
     copyBtn.addEventListener('click', () => {
       const fullText = `${hookEl.textContent}\n\n${bodyEl.textContent}\n\n${tagsEl.textContent}`;
       navigator.clipboard.writeText(fullText).then(() => {
-        showToast('📋 Copied AI Ad Script to Clipboard!');
+        showToast('Copied script to clipboard');
       });
     });
   }
 }
 
 /* ==========================================================================
-   6. AI ROI & CAMPAIGN ESTIMATOR
+   6. AI ROI ESTIMATOR
    ========================================================================== */
 function initRoiCalculator() {
   const budgetSlider = document.getElementById('budgetSlider');
@@ -412,7 +396,7 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   7. CASE STUDY TAB FILTERING
+   7. CASE STUDY TABS
    ========================================================================== */
 function initCaseStudyTabs() {
   const tabBtns = document.querySelectorAll('.case-filter-tabs .tab-btn');
@@ -438,7 +422,7 @@ function initCaseStudyTabs() {
 }
 
 /* ==========================================================================
-   8. PRICING MODEL SWITCHER
+   8. PRICING TOGGLE
    ========================================================================== */
 function initPricingToggle() {
   const switchBtn = document.getElementById('pricingSwitch');
@@ -457,9 +441,9 @@ function initPricingToggle() {
 
     if (isPerformance) {
       price1.textContent = '10%';
-      period1.textContent = 'of Net ROAS Revenue';
+      period1.textContent = 'of Net Revenue';
       price2.textContent = '15%';
-      period2.textContent = 'of Net ROAS Revenue';
+      period2.textContent = 'of Net Revenue';
     } else {
       price1.textContent = '$3,500';
       period1.textContent = '/month';
@@ -470,7 +454,7 @@ function initPricingToggle() {
 }
 
 /* ==========================================================================
-   9. NAVBAR SCROLL EFFECT
+   9. NAVBAR SCROLL
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -484,7 +468,7 @@ function initNavbarScroll() {
 }
 
 /* ==========================================================================
-   10. MODAL WIZARD (AUDIT BOOKING)
+   10. MODAL AUDIT WIZARD
    ========================================================================== */
 function openAuditModal() {
   const modal = document.getElementById('auditModal');
@@ -515,11 +499,11 @@ function submitAuditForm(e) {
   e.preventDefault();
   const name = document.getElementById('auditName').value;
   closeAuditModal();
-  showToast(`🎉 Thank you ${name}! Your AI Audit & $5k Plan is booked. We will reach out in <2 hours.`);
+  showToast(`Audit request submitted for ${name}`);
 }
 
 /* ==========================================================================
-   11. TOAST NOTIFICATION STREAMER
+   11. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');
@@ -527,26 +511,19 @@ function showToast(message) {
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.innerHTML = `<i class="fa-solid fa-bolt text-gradient"></i> <span>${message}</span>`;
+  toast.innerHTML = `<i class="fa-solid fa-check"></i> <span>${message}</span>`;
 
   container.appendChild(toast);
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateX(100%)';
-    toast.style.transition = 'all 0.4s ease';
-    setTimeout(() => toast.remove(), 400);
-  }, 4000);
+    toast.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
 }
 
 function initToastStreamer() {
-  const proofToasts = [
-    '🔥 Enterprise brand booked an AI Growth Audit',
-    '⚡ New client scaled from $15k to $85k/mo on Meta Advantage+',
-    '🚀 ShivSpill Neural Engine v4.2 updated with 12 new algorithms'
-  ];
-
   setTimeout(() => {
-    showToast(proofToasts[0]);
-  }, 6000);
+    showToast('New AI Growth Audit request received');
+  }, 8000);
 }
