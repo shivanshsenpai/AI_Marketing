@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShivSpill — Next-Gen AI Marketing Agency | Hyper-Scaling Brands with Neural Intelligence</title>
+  <meta name="description" content="ShivSpill is a $10M+ ROI AI Marketing Agency architecting autonomous ad engines, predictive bidding, and neural content factories for hyper-growth brands.">
+  
+  <!-- OpenGraph & SEO Meta Tags -->
+  <meta property="og:title" content="ShivSpill — Next-Gen AI Marketing Agency">
+  <meta property="og:description" content="Scale your brand 10x with autonomous AI ad engines and real-time conversion optimization.">
+  <meta property="og:type" content="website">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Primary Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Neural Network Canvas Animation Background -->
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- Ambient Glowing Orbs -->
+  <div class="ambient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- ==========================================================================
+     NAVIGATION BAR
+     ========================================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="brand-name">Shiv<span>Spill</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#ai-engine" class="nav-link">AI Engine Demo</a></li>
+        <li><a href="#calculator" class="nav-link">ROI Calculator</a></li>
+        <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Futuristic Audio Toggle Button -->
+        <button class="sound-toggle" id="soundToggle" title="Toggle Futuristic Audio Feedback">
+          <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+        </button>
+
+        <button class="btn btn-primary btn-sm" onclick="openAuditModal()">
+          <span>Book AI Audit</span>
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+     HERO SECTION
+     ========================================================================== -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>ShivSpill Neural Engine v4.2 Live</span>
+        </div>
+
+        <h1 class="hero-title">
+          Architecting <span class="text-gradient">Viral Growth</span> with <span class="typewriter-text" id="typewriter"></span>
+        </h1>
+
+        <p class="hero-description">
+          We combine autonomous neural ad algorithms, predictive audience sculpting, and generative content engines to scale direct-to-consumer and enterprise brands to 8-figure revenues.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-primary" onclick="openAuditModal()">
+            <span>Claim Free $5K AI Growth Plan</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <a href="#ai-engine" class="btn btn-secondary">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Test AI Sandbox</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">$148M+</span>
+            <span class="stat-label">Client Ad Revenue</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4.8x</span>
+            <span class="stat-label">Average ROAS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">99.4%</span>
+            <span class="stat-label">Prediction Accuracy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Interactive AI Dashboard Preview -->
+      <div class="hero-visual">
+        <div class="dashboard-preview-card">
+          <div class="dashboard-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="dashboard-tag">
+              <i class="fa-solid fa-circle-nodes"></i> AUTONOMOUS ENGINE
+            </div>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-title">Live CPA Reduction</div>
+              <div class="metric-val">
+                <span>-64.2%</span>
+                <span class="metric-trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 18%</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Real-Time ROAS</div>
+              <div class="metric-val">
+                <span>6.42x</span>
+                <span class="metric-trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> Optimal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-pulse-feed">
+            <div class="feed-header">
+              <i class="fa-solid fa-network-wired text-gradient"></i>
+              <span>Live Neural Operations Feed</span>
+            </div>
+            <div class="feed-stream" id="feedStream">
+              <div class="feed-item">
+                <span class="feed-time">16:02:12</span>
+                <span>AI reallocated $12.4k budget to Meta High-Intent Lookalike 1%</span>
+              </div>
+              <div class="feed-item">
+                <span class="feed-time">16:02:04</span>
+                <span>Generated 48 variant hooks; CTR increased by +31.8%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-badge-card">
+            <div class="badge-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem;">Top AI Agency 2026</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Verified by Global Tech Insights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     CLIENT TICKER MARQUEE
+     ========================================================================== -->
+  <div class="client-marquee-section">
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <div class="client-logo"><i class="fa-solid fa-cubes"></i> TECHFLOW</div>
+        <div class="client-logo"><i class="fa-solid fa-bolt-lightning"></i> METAGROWTH</div>
+        <div class="client-logo"><i class="fa-solid fa-atom"></i> NEXUS AI</div>
+        <div class="client-logo"><i class="fa-solid fa-shield-halved"></i> QUANTUM PAY</div>
+        <div class="client-logo"><i class="fa-solid fa-layer-group"></i> APEX MEDIA</div>
+        <div class="client-logo"><i class="fa-solid fa-fire"></i> VELOCITY LABS</div>
+        <div class="client-logo"><i class="fa-solid fa-gem"></i> PRISM DIGITAL</div>
+        <!-- Duplicated for seamless infinite loop -->
+        <div class="client-logo"><i class="fa-solid fa-cubes"></i> TECHFLOW</div>
+        <div class="client-logo"><i class="fa-solid fa-bolt-lightning"></i> METAGROWTH</div>
+        <div class="client-logo"><i class="fa-solid fa-atom"></i> NEXUS AI</div>
+        <div class="client-logo"><i class="fa-solid fa-shield-halved"></i> QUANTUM PAY</div>
+        <div class="client-logo"><i class="fa-solid fa-layer-group"></i> APEX MEDIA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+     LIVE INTERACTIVE AI CONTENT ENGINE DEMO
+     ========================================================================== -->
+  <section id="ai-engine">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Interactive Sandbox</span>
+        </div>
+        <h2 class="section-title">Test Our <span class="text-gradient">AI Content Engine</span> Live</h2>
+        <p class="section-subtitle">Experience how ShivSpill constructs high-converting, viral ad creatives and campaign copy in real time.</p>
+      </div>
+
+      <div class="ai-demo-wrapper">
+        <!-- Controls Card -->
+        <div class="glass-card demo-controls-card">
+          <div class="form-group">
+            <label class="form-label" for="brandInput">Brand / Product Name</label>
+            <input type="text" id="brandInput" class="form-input" value="Lumina Glow" placeholder="e.g. Lumina Glow">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="industrySelect">Industry Vertical</label>
+            <select id="industrySelect" class="form-select">
+              <option value="ecom">Direct-to-Consumer / E-Commerce</option>
+              <option value="saas">SaaS & B2B Software</option>
+              <option value="fintech">Fintech & Crypto</option>
+              <option value="health">Health & Wellness</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Brand Persona & Tone</label>
+            <div class="tone-tags" id="toneContainer">
+              <span class="tone-chip active" data-tone="Bold & Disruptive">Bold & Disruptive</span>
+              <span class="tone-chip" data-tone="Urgent / High Conversion">Urgent / High Conversion</span>
+              <span class="tone-chip" data-tone="Sophisticated Luxe">Sophisticated Luxe</span>
+              <span class="tone-chip" data-tone="Data-Driven B2B">Data-Driven B2B</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="generateAiBtn">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Synthesize AI Copy & Hook</span>
+          </button>
+        </div>
+
+        <!-- Output Card -->
+        <div class="glass-card demo-output-card">
+          <div class="output-header">
+            <div class="output-status">
+              <i class="fa-solid fa-circle text-gradient"></i>
+              <span id="outputState">Neural Output Ready</span>
+            </div>
+            <span class="dashboard-tag">99.2% Predicted CTR Score</span>
+          </div>
+
+          <div class="output-content-box">
+            <div class="generated-hook" id="aiHook">"Stop Wasting 40% of Your Ad Spend on Dead Audiences."</div>
+            <div class="generated-body" id="aiBody">
+              Lumina Glow leverages hyper-predictive neural bidding to target users 12 seconds before they even realize they need your product. Zero guesswork. Pure algorithmic scaling.
+            </div>
+            <div class="generated-hashtags" id="aiTags">#AIConversion #ScalingEngine #ShivSpill #HighROAS</div>
+          </div>
+
+          <div class="output-actions">
+            <button class="copy-btn" id="copyAiOutput">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Output Script</span>
+            </button>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Generated via ShivSpill GPT-4o Engine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     AI ROI & CAMPAIGN ESTIMATOR
+     ========================================================================== -->
+  <section id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Financial Projection Engine</span>
+        </div>
+        <h2 class="section-title">Calculate Your <span class="text-gradient">AI Revenue Multiplier</span></h2>
+        <p class="section-subtitle">Adjust monthly media spend to project instant ROAS increase and cost per acquisition reductions.</p>
+      </div>
+
+      <div class="roi-calculator-grid">
+        <div class="glass-card calc-inputs-card">
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span class="form-label">Monthly Ad Spend ($)</span>
+              <span class="slider-value" id="budgetVal">$25,000</span>
+            </div>
+            <input type="range" id="budgetSlider" class="custom-slider" min="5000" max="250000" step="5000" value="25000">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="targetChannel">Primary Ad Channels</label>
+            <select id="targetChannel" class="form-select">
+              <option value="omni">Omnichannel (Meta + Google + TikTok)</option>
+              <option value="meta">Meta Advantage+ Scaling Focus</option>
+              <option value="google">Google Performance Max & Search</option>
+              <option value="b2b">LinkedIn & Account-Based B2B</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="avgAov">Average Order Value / LTV ($)</label>
+            <input type="number" id="avgAov" class="form-input" value="180">
+          </div>
+        </div>
+
+        <div class="glass-card calc-results-card">
+          <div>
+            <span class="badge" style="margin-bottom: 8px;">Projected 90-Day Output</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;">ShivSpill AI Impact</h3>
+          </div>
+
+          <div class="results-grid">
+            <div class="result-metric">
+              <div class="form-label">Projected Revenue</div>
+              <div class="result-val text-gradient" id="projectedRevenue">$117,500</div>
+            </div>
+            <div class="result-metric">
+              <div class="form-label">Projected ROAS</div>
+              <div class="result-val" id="projectedRoas" style="color: var(--accent-emerald);">4.70x</div>
+            </div>
+            <div class="result-metric">
+              <div class="form-label">CPA Drop</div>
+              <div class="result-val" id="cpaDrop" style="color: var(--accent-magenta);">-54.5%</div>
+            </div>
+            <div class="result-metric">
+              <div class="form-label">Est. Monthly Leads</div>
+              <div class="result-val" id="leadVolume" style="color: var(--accent-cyan);">652</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="margin-top: 24px; width: 100%;" onclick="openAuditModal()">
+            <span>Lock In These Projections</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     SERVICES & GROWTH ENGINES
+     ========================================================================== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Capabilities</span>
+        </div>
+        <h2 class="section-title">Autonomous <span class="text-gradient">Growth Engines</span></h2>
+        <p class="section-subtitle">Our proprietary suite of AI systems engineered to outperform traditional agencies by 10x speed and accuracy.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3 class="service-title">Predictive Neural Bidding</h3>
+          <p class="service-desc">Algorithmic real-time bid adjustments across Meta and Google algorithms that outmaneuver competition 24/7.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Micro-second bid rebalancing</li>
+            <li><i class="fa-solid fa-check"></i> Zero-wasted budget protection</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="service-title">Generative Creative Factory</h3>
+          <p class="service-desc">Instant production of 500+ ad variations, UGC video hooks, and dynamic landing page headlines every week.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Rapid hook testing engine</li>
+            <li><i class="fa-solid fa-check"></i> High-converting visual assets</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 class="service-title">Autonomous Audience Sculpting</h3>
+          <p class="service-desc">Identify high-LTV buyers before they search using multi-platform lookalike vectors and behavioral intent modeling.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Hyper-precise customer targeting</li>
+            <li><i class="fa-solid fa-check"></i> Churn prevention retargeting</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-chart-line-up"></i></div>
+          <h3 class="service-title">Real-Time Autonomous CRO</h3>
+          <p class="service-desc">Landing pages that adapt dynamically based on the exact user ad click, maximizing conversion probability.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Dynamic personalized text & CTA</li>
+            <li><i class="fa-solid fa-check"></i> Sub-second page load speeds</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3 class="service-title">Multi-Touch Neural Attribution</h3>
+          <p class="service-desc">Bypass iOS tracking limitations with server-side AI attribution matrix that reveals true omni-channel ROI.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> 100% accurate conversion data</li>
+            <li><i class="fa-solid fa-check"></i> First-party pixel integration</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fa-solid fa-comment-dots"></i></div>
+          <h3 class="service-title">AI Conversational Nurture</h3>
+          <p class="service-desc">Automated lead nurturing engines over WhatsApp, SMS, and Email that convert cold leads into booked demos.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Instant lead engagement (<5s)</li>
+            <li><i class="fa-solid fa-check"></i> Natural language AI chat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     CASE STUDIES & PROVEN RESULTS
+     ========================================================================== -->
+  <section id="case-studies">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Track Record</span>
+        </div>
+        <h2 class="section-title">Proven <span class="text-gradient">Transformations</span></h2>
+        <p class="section-subtitle">Real results engineered by ShivSpill for industry leaders.</p>
+      </div>
+
+      <div class="case-filter-tabs">
+        <button class="tab-btn active" data-category="all">All Brands</button>
+        <button class="tab-btn" data-category="ecom">E-Commerce / D2C</button>
+        <button class="tab-btn" data-category="saas">SaaS & Enterprise</button>
+        <button class="tab-btn" data-category="fintech">Fintech</button>
+      </div>
+
+      <div class="case-studies-grid">
+        <div class="glass-card case-card" data-cat="ecom">
+          <div>
+            <div class="case-header">
+              <span class="case-category">D2C Fashion & Apparel</span>
+              <span class="dashboard-tag">+840% Growth</span>
+            </div>
+            <h3 class="case-title">Aura Luxe: Scaling from $80k to $750k Monthly Ad Revenue in 90 Days</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Deployed Generative Creative Factory + Meta Autonomous Bidding. Decreased CPA by 58% while tripling daily scale.
+            </p>
+          </div>
+          <div class="case-metrics-bar">
+            <div class="case-metric-item">
+              <div class="case-metric-val">5.82x</div>
+              <div class="case-metric-lbl">Blended ROAS</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">$2.1M</div>
+              <div class="case-metric-lbl">Total Revenue</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">-58%</div>
+              <div class="case-metric-lbl">CPA Drop</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card case-card" data-cat="saas">
+          <div>
+            <div class="case-header">
+              <span class="case-category">Enterprise B2B SaaS</span>
+              <span class="dashboard-tag">3.4x Pipeline</span>
+            </div>
+            <h3 class="case-title">CloudScale AI: Reducing Demo Acquisition Cost from $320 to $94</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Engineered LinkedIn Account-Based predictive targeting paired with real-time adaptive landing pages.
+            </p>
+          </div>
+          <div class="case-metrics-bar">
+            <div class="case-metric-item">
+              <div class="case-metric-val">$94</div>
+              <div class="case-metric-lbl">Cost Per Demo</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">1,420</div>
+              <div class="case-metric-lbl">Qualified Demos</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">+210%</div>
+              <div class="case-metric-lbl">ARR Growth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     PRICING & ENGAGEMENT TIERS
+     ========================================================================== -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-tags"></i>
+          <span>Transparent Growth Partnerships</span>
+        </div>
+        <h2 class="section-title">Scalable <span class="text-gradient">Engagement Models</span></h2>
+        <p class="section-subtitle">Choose between flat monthly retainer or performance-aligned revenue sharing.</p>
+      </div>
+
+      <div class="pricing-toggle-container">
+        <span style="font-weight: 600; color: var(--text-secondary);">Monthly Retainer</span>
+        <div class="pricing-switch" id="pricingSwitch">
+          <div class="switch-handle"></div>
+        </div>
+        <span style="font-weight: 600; color: #fff;">Performance Share (% ROAS)</span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Growth Tier -->
+        <div class="glass-card pricing-card">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;">Growth Tier</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">For brands spending $10k–$30k/mo</p>
+            <div class="price-box">
+              <span class="price-amount" id="price1">$3,500</span>
+              <span class="price-period" id="period1">/month</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Autonomous Meta + Google Ad Engine</li>
+              <li><i class="fa-solid fa-check"></i> 40 AI Ad Creatives / mo</li>
+              <li><i class="fa-solid fa-check"></i> Weekly Neural Bidding Optimizations</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Slack Communication</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="openAuditModal()">Get Started</button>
+        </div>
+
+        <!-- Scale Tier (Popular) -->
+        <div class="glass-card pricing-card popular">
+          <div class="popular-badge">MOST POPULAR</div>
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;">Scale Tier</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">For brands spending $30k–$100k/mo</p>
+            <div class="price-box">
+              <span class="price-amount" id="price2">$6,500</span>
+              <span class="price-period" id="period2">/month</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Everything in Growth Tier</li>
+              <li><i class="fa-solid fa-check"></i> 120 AI Ad Creatives + UGC Video Hooks</li>
+              <li><i class="fa-solid fa-check"></i> Real-time Adaptive CRO Landing Pages</li>
+              <li><i class="fa-solid fa-check"></i> Server-Side Neural Attribution Pixel</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated AI Growth Architect</li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" onclick="openAuditModal()">Scale Today</button>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div class="glass-card pricing-card">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;">Enterprise AI</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">For brands spending $100k+/mo</p>
+            <div class="price-box">
+              <span class="price-amount" id="price3">Custom</span>
+              <span class="price-period" id="period3">Tailored</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Custom Neural Model Fine-Tuning</li>
+              <li><i class="fa-solid fa-check"></i> Unlimited Ad Variants & Campaign Assets</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 Real-Time Algorithm Auditing</li>
+              <li><i class="fa-solid fa-check"></i> Guaranteed ROAS SLA Contract</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="openAuditModal()">Contact Enterprise</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     TESTIMONIALS & TRUST
+     ========================================================================== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-star"></i>
+          <span>Partner Feedback</span>
+        </div>
+        <h2 class="section-title">Endorsed by <span class="text-gradient">Industry Pioneers</span></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="glass-card testimonial-card">
+          <div class="testimonial-quote">
+            "ShivSpill replaced our 5-person agency team with their AI neural engine. Our ROAS spiked from 2.1x to 5.4x in under 30 days."
+          </div>
+          <div class="author-info">
+            <div class="author-avatar">MK</div>
+            <div>
+              <div class="author-name">Marcus Vance</div>
+              <div class="author-role">CMO @ Aura Luxe</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div class="testimonial-quote">
+            "The real-time copy synthesizer and predictive bidding alone lowered our B2B acquisition cost by 64%. Unbelievable execution."
+          </div>
+          <div class="author-info">
+            <div class="author-avatar">SR</div>
+            <div>
+              <div class="author-name">Sarah Ross</div>
+              <div class="author-role">VP of Marketing @ CloudScale</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div class="testimonial-quote">
+            "If you aren't using ShivSpill's AI marketing stack in 2026, you are essentially gifting market share to your competitors."
+          </div>
+          <div class="author-info">
+            <div class="author-avatar">DL</div>
+            <div>
+              <div class="author-name">David Lin</div>
+              <div class="author-role">Founder @ Prism Digital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     CTA BANNER
+     ========================================================================== -->
+  <section class="container">
+    <div class="cta-banner">
+      <h2 class="cta-title">Ready to Dominate Your Market with <span class="text-gradient">Autonomous AI</span>?</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px auto; font-size: 1.1rem;">
+        Claim your complimentary $5,000 AI Marketing Audit & Growth Plan. Our neural engine will analyze your existing ad account within 24 hours.
+      </p>
+      <button class="btn btn-primary" onclick="openAuditModal()">
+        <span>Book Audit & Claim Plan</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-icon">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="brand-name">Shiv<span>Spill</span></div>
+          </a>
+          <p class="footer-desc">
+            The world's leading AI-native marketing agency. Combining artificial intelligence with creative mastery to build $100M+ brands.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Growth Engines</a></li>
+            <li><a href="#ai-engine">AI Content Demo</a></li>
+            <li><a href="#calculator">ROI Estimator</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="#">Meta Advantage+ AI</a></li>
+            <li><a href="#">Google PMax AI</a></li>
+            <li><a href="#">Predictive Bidding</a></li>
+            <li><a href="#">Generative UGC</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/shivanshsenpai/AI_Marketing" target="_blank"><i class="fa-brands fa-github"></i> GitHub Repository</a></li>
+            <li><a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter / X</a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i> contact@shivspill.ai</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 ShivSpill AI Inc. All rights reserved. Built for high performance.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+     MULTI-STEP AI AUDIT BOOKING MODAL
+     ========================================================================== -->
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeAuditModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="wizard-steps">
+        <div class="wizard-step-dot active" id="stepDot1"></div>
+        <div class="wizard-step-dot" id="stepDot2"></div>
+        <div class="wizard-step-dot" id="stepDot3"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="modal-step" id="modalStep1">
+        <span class="badge">Step 1 of 3</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">What is your primary growth goal?</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0 28px 0;">
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="goalRadio" value="Scale Monthly Revenue 3x-10x" checked>
+            <span>Scale Monthly Ad Revenue 3x–10x</span>
+          </label>
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="goalRadio" value="Lower Customer Acquisition Cost (CPA)">
+            <span>Lower Customer Acquisition Cost (CPA) by >40%</span>
+          </label>
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="goalRadio" value="Automate Creative Production">
+            <span>Automate Ad Copy & Creative Production</span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary" style="width: 100%;" onclick="nextModalStep(2)">Continue to Budget <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="modal-step" id="modalStep2" style="display: none;">
+        <span class="badge">Step 2 of 3</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">Current Monthly Ad Budget</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0 28px 0;">
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="budgetRadio" value="$5,000 - $15,000/mo" checked>
+            <span>$5,000 – $15,000 / month</span>
+          </label>
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="budgetRadio" value="$15,000 - $50,000/mo">
+            <span>$15,000 – $50,000 / month</span>
+          </label>
+          <label class="glass-card" style="padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+            <input type="radio" name="budgetRadio" value="$50,000+/mo">
+            <span>$50,000+ / month (Enterprise)</span>
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+          <button class="btn btn-secondary" style="flex: 1;" onclick="nextModalStep(1)">Back</button>
+          <button class="btn btn-primary" style="flex: 2;" onclick="nextModalStep(3)">Final Step <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="modal-step" id="modalStep3" style="display: none;">
+        <span class="badge">Step 3 of 3</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">Where should we send your audit?</h3>
+        
+        <form id="auditForm" onsubmit="submitAuditForm(event)">
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" for="auditName">Full Name</label>
+            <input type="text" id="auditName" class="form-input" placeholder="e.g. Alex Mercer" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" for="auditEmail">Work Email</label>
+            <input type="email" id="auditEmail" class="form-input" placeholder="alex@brand.com" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label class="form-label" for="auditWebsite">Website URL</label>
+            <input type="url" id="auditWebsite" class="form-input" placeholder="https://yourbrand.com" required>
+          </div>
+
+          <div style="display: flex; gap: 12px;">
+            <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="nextModalStep(2)">Back</button>
+            <button type="submit" class="btn btn-primary" style="flex: 2;">
+              <span>Submit & Schedule Audit</span>
+              <i class="fa-solid fa-circle-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Streamer Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Primary JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
