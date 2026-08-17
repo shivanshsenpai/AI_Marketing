@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPricingToggle();
   initNavbarScroll();
   initToastStreamer();
+  initFaqAccordion();
 });
 
 /* ==========================================================================
@@ -144,7 +145,7 @@ function initSoundEngine() {
     }
   });
 
-  document.querySelectorAll('.btn, .tone-chip, .tab-btn').forEach(elem => {
+  document.querySelectorAll('.btn, .tone-chip, .tab-btn, .faq-question').forEach(elem => {
     elem.addEventListener('mouseenter', () => {
       if (soundEnabled) playFuturisticSound('hover');
     });
@@ -503,7 +504,26 @@ function submitAuditForm(e) {
 }
 
 /* ==========================================================================
-   11. TOAST STREAMER
+   11. FAQ ACCORDION (NEW)
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+/* ==========================================================================
+   12. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');
