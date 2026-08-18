@@ -397,7 +397,50 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   7. CASE STUDY TABS
+   7. INSTANT AD ACCOUNT HEALTH & AUDIT ANALYZER TOOL (NEW)
+   ========================================================================== */
+function runAccountHealthAudit() {
+  const spend = parseFloat(document.getElementById('healthMonthlySpend').value) || 20000;
+  const roas = parseFloat(document.getElementById('healthCurrentRoas').value) || 2.2;
+  const btn = document.getElementById('runHealthAuditBtn');
+
+  btn.disabled = true;
+  btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Analyzing Signals...`;
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = `<i class="fa-solid fa-stethoscope"></i> <span>Run Instant AI Diagnostic</span>`;
+
+    // Dynamic calculations
+    const wastedBudgetPct = Math.min(Math.max(Math.round((3.5 - roas) * 22 + 15), 12), 48);
+    const unlockableRoasVal = (roas * 1.85).toFixed(2);
+    const healthScore = Math.min(Math.max(Math.round(roas * 28), 35), 92);
+
+    document.getElementById('healthStatusTag').textContent = `Score: ${healthScore}/100 (${healthScore > 75 ? 'Good' : 'Needs Optimization'})`;
+    document.getElementById('healthWastedBudget').textContent = `${wastedBudgetPct}%`;
+    document.getElementById('healthCreativeFatigue').textContent = wastedBudgetPct > 30 ? 'High' : 'Moderate';
+    document.getElementById('healthAttributionLoss').textContent = `-${Math.round(wastedBudgetPct * 1.1)}%`;
+    document.getElementById('healthUnlockableRoas').textContent = `${unlockableRoasVal}x`;
+
+    document.getElementById('healthRecommendation').textContent = 
+      `At $${spend.toLocaleString()}/mo spend, deploying CAPI Server-Side attribution can recover up to $${Math.round(spend * 0.28).toLocaleString()} in wasted budget annually.`;
+
+    showToast('✨ Account Health Audit Complete!');
+  }, 700);
+}
+
+/* ==========================================================================
+   8. PLAYBOOK DOWNLOAD HANDLER (NEW)
+   ========================================================================== */
+function downloadPlaybook(title) {
+  showToast(`📥 Downloading "${title}" Strategy Blueprint...`);
+  setTimeout(() => {
+    openAuditModal();
+  }, 1000);
+}
+
+/* ==========================================================================
+   9. CASE STUDY TABS
    ========================================================================== */
 function initCaseStudyTabs() {
   const tabBtns = document.querySelectorAll('.case-filter-tabs .tab-btn');
@@ -423,7 +466,7 @@ function initCaseStudyTabs() {
 }
 
 /* ==========================================================================
-   8. PRICING TOGGLE
+   10. PRICING TOGGLE
    ========================================================================== */
 function initPricingToggle() {
   const switchBtn = document.getElementById('pricingSwitch');
@@ -455,7 +498,7 @@ function initPricingToggle() {
 }
 
 /* ==========================================================================
-   9. NAVBAR SCROLL
+   11. NAVBAR SCROLL
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -469,7 +512,7 @@ function initNavbarScroll() {
 }
 
 /* ==========================================================================
-   10. MODAL AUDIT WIZARD
+   12. MODAL AUDIT WIZARD
    ========================================================================== */
 function openAuditModal() {
   const modal = document.getElementById('auditModal');
@@ -504,7 +547,7 @@ function submitAuditForm(e) {
 }
 
 /* ==========================================================================
-   11. FAQ ACCORDION (NEW)
+   13. FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -523,7 +566,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   12. TOAST STREAMER
+   14. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');

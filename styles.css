@@ -337,7 +337,7 @@ section {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   list-style: none;
 }
 
@@ -345,7 +345,7 @@ section {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   transition: color var(--transition-fast);
 }
 
@@ -648,7 +648,7 @@ section {
 }
 
 /* ==========================================================================
-   4-STAGE NEURAL PIPELINE ARCHITECTURE (NEW)
+   4-STAGE NEURAL PIPELINE ARCHITECTURE
    ========================================================================== */
 .pipeline-grid {
   display: grid;
@@ -702,7 +702,62 @@ section {
 }
 
 /* ==========================================================================
-   INTERACTIVE TECH STACK MATRIX (NEW)
+   TRADITIONAL AGENCY VS SHIVSPILL COMPARISON MATRIX (NEW)
+   ========================================================================== */
+.comparison-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.comparison-header-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  padding: 20px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  padding: 18px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  align-items: center;
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+.comp-col-feature {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.comp-col-traditional {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.comp-col-shivspill {
+  color: var(--accent-white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   INTERACTIVE TECH STACK MATRIX
    ========================================================================== */
 .tech-stack-grid {
   display: flex;
@@ -739,7 +794,7 @@ section {
 }
 
 /* ==========================================================================
-   FAQ ACCORDION (NEW)
+   FAQ ACCORDION
    ========================================================================== */
 .faq-accordion {
   max-width: 840px;
@@ -1505,6 +1560,7 @@ section {
   .hero-grid, .ai-demo-wrapper, .roi-calculator-grid { grid-template-columns: 1fr; }
   .services-grid, .pricing-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
+  .comparison-header-row, .comparison-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
 @media (max-width: 768px) {

@@ -58,8 +58,12 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 ## 🛠️ Interactive Features & Modules
 
 - 🌌 **Minimalist Monochrome Canvas Engine**: 60fps HTML5 Canvas particle physics system with mouse cursor attraction and spring vector connections.
+- 🩺 **Instant Ad Account Health & Audit Analyzer**: Live diagnostic widget running instant AI account health simulations (Wasted Budget %, Creative Fatigue, Attribution Loss, and Unlockable ROAS).
+- ⚖️ **Traditional Agency vs. ShivSpill Comparison Matrix**: Comparative table highlighting key operational dimensions (Creative Velocity, Bid Management, Tracking Accuracy, Setup Time).
 - 🧪 **Live AI Content Engine Simulator**: Interactive sandbox enabling real-time generation of ad scripts, hooks, and hashtags for any brand and target tone.
 - 📊 **Financial ROI & Revenue Multiplier Estimator**: Custom range sliders computing projected 90-day revenue, ROAS boost, CPA drop %, and lead volume.
+- 📚 **AI Growth Playbooks Knowledge Hub**: Actionable technical blueprints for Meta Advantage+ scaling, iOS 17+ server CAPI, and B2B intent sculpting.
+- 👥 **Neural Engineering Team & Advisory Board**: Minimalist profile cards showcasing AI architects and quantitative bidding researchers.
 - 🎵 **Web Audio API Feedback Synthesizer**: Native browser AudioContext sound generator providing soft micro-click and cyber sweep feedback (toggleable).
 - 🏆 **Filterable Case Studies Showcase**: Real performance metrics ($2.1M D2C revenue, $94 SaaS demo acquisition).
 - ❓ **Interactive FAQ Accordion**: Expandable Q&A section addressing onboarding timeline, data privacy, minimum spend, and performance guarantees.
@@ -124,7 +128,7 @@ w:/aimarketing/
 1. Push all latest changes to the `main` branch:
    ```bash
    git add .
-   git commit -m "feat: updated project architecture"
+   git commit -m "feat: added new interactive modules"
    git push origin main
    ```
 2. In your GitHub repository settings, navigate to **Pages** -> Select `main` branch -> Save.
