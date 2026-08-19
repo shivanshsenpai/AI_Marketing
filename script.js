@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSoundEngine();
   initThemeToggle();
   initLanguageSelector();
+  initMobileMenu();
   initTypewriter();
   initAiFeedStreamer();
   initAiContentDemo();
@@ -50,15 +51,14 @@ function initThemeToggle() {
 const translations = {
   en: {
     nav_services: "Services",
-    nav_pipeline: "AI Pipeline",
+    nav_pipeline: "Pipeline",
     nav_comparison: "Comparison",
-    nav_analyzer: "Health Analyzer",
-    nav_sandbox: "AI Sandbox",
-    nav_calculator: "ROI Calculator",
-    nav_playbooks: "Playbooks",
+    nav_analyzer: "Analyzer",
+    nav_sandbox: "Sandbox",
+    nav_calculator: "Calculator",
     nav_pricing: "Pricing",
     nav_faq: "FAQ",
-    nav_cta: "Book AI Audit",
+    nav_cta: "Book Audit",
     hero_badge: "ShivSpill Neural Engine v4.2 Live",
     hero_title_prefix: "Architecting",
     hero_title_gradient: "Viral Growth",
@@ -72,15 +72,14 @@ const translations = {
   },
   es: {
     nav_services: "Servicios",
-    nav_pipeline: "Tubería IA",
+    nav_pipeline: "Tubería",
     nav_comparison: "Comparativa",
     nav_analyzer: "Analizador",
-    nav_sandbox: "Demostración IA",
-    nav_calculator: "Calculadora ROI",
-    nav_playbooks: "Manuales",
+    nav_sandbox: "Sandbox",
+    nav_calculator: "Calculadora",
     nav_pricing: "Precios",
     nav_faq: "Preguntas",
-    nav_cta: "Auditoría IA",
+    nav_cta: "Auditoría",
     hero_badge: "Motor Neuronal ShivSpill v4.2 Activo",
     hero_title_prefix: "Diseñando",
     hero_title_gradient: "Crecimiento Viral",
@@ -94,15 +93,14 @@ const translations = {
   },
   de: {
     nav_services: "Leistungen",
-    nav_pipeline: "KI-Pipeline",
+    nav_pipeline: "Pipeline",
     nav_comparison: "Vergleich",
-    nav_analyzer: "Analyse-Tool",
-    nav_sandbox: "KI-Sandbox",
-    nav_calculator: "ROI-Rechner",
-    nav_playbooks: "Leitfäden",
+    nav_analyzer: "Analyse",
+    nav_sandbox: "Sandbox",
+    nav_calculator: "Rechner",
     nav_pricing: "Preise",
     nav_faq: "FAQ",
-    nav_cta: "KI-Audit Buchen",
+    nav_cta: "KI-Audit",
     hero_badge: "ShivSpill Neuronale Engine v4.2 Live",
     hero_title_prefix: "Entwicklung von",
     hero_title_gradient: "Viralem Wachstum",
@@ -116,15 +114,14 @@ const translations = {
   },
   ja: {
     nav_services: "サービス",
-    nav_pipeline: "AIパイプライン",
+    nav_pipeline: "パイプライン",
     nav_comparison: "比較表",
     nav_analyzer: "診断ツール",
-    nav_sandbox: "AIサンドボックス",
-    nav_calculator: "ROI計算機",
-    nav_playbooks: "プレイブック",
-    nav_pricing: "料金プラン",
+    nav_sandbox: "サンドボックス",
+    nav_calculator: "計算機",
+    nav_pricing: "料金",
     nav_faq: "よくある質問",
-    nav_cta: "AI診断を予約",
+    nav_cta: "AI診断",
     hero_badge: "ShivSpill ニューラルエンジン v4.2稼働中",
     hero_title_prefix: "次世代の",
     hero_title_gradient: "バイラル成長を",
@@ -138,15 +135,14 @@ const translations = {
   },
   hi: {
     nav_services: "सेवाएं",
-    nav_pipeline: "एआई पाइपलाइन",
+    nav_pipeline: "पाइपलाइन",
     nav_comparison: "तुलना",
-    nav_analyzer: "स्वास्थ्य विश्लेषक",
-    nav_sandbox: "एआई सैंडबॉक्स",
-    nav_calculator: "आरओआई कैलकुलेटर",
-    nav_playbooks: "प्लेबुक्स",
-    nav_pricing: "मूल्य निर्धारण",
-    nav_faq: "प्रश्न और उत्तर",
-    nav_cta: "एआई ऑडिट बुक करें",
+    nav_analyzer: "विश्लेषक",
+    nav_sandbox: "सैंडबॉक्स",
+    nav_calculator: "कैलकुलेटर",
+    nav_pricing: "मूल्य",
+    nav_faq: "प्रश्नोत्तर",
+    nav_cta: "ऑडिट बुक करें",
     hero_badge: "शिवस्पिल न्यूरल इंजन v4.2 लाइव",
     hero_title_prefix: "डिजाइनिंग",
     hero_title_gradient: "वायरल ग्रोथ",
@@ -191,7 +187,29 @@ function setLanguage(lang) {
 }
 
 /* ==========================================================================
-   3. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
+   3. MOBILE MENU TOGGLE
+   ========================================================================== */
+function initMobileMenu() {
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (!mobileBtn || !navLinks) return;
+
+  mobileBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const isActive = navLinks.classList.contains('active');
+    mobileBtn.innerHTML = isActive ? `<i class="fa-solid fa-xmark"></i>` : `<i class="fa-solid fa-bars"></i>`;
+  });
+
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+    });
+  });
+}
+
+/* ==========================================================================
+   4. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
    ========================================================================== */
 function initNeuralCanvas() {
   const canvas = document.getElementById('neural-canvas');
@@ -288,7 +306,7 @@ function initNeuralCanvas() {
 }
 
 /* ==========================================================================
-   4. REFINED AUDIO FEEDBACK ENGINE
+   5. REFINED AUDIO FEEDBACK ENGINE
    ========================================================================== */
 let audioCtx = null;
 let soundEnabled = false;
@@ -369,7 +387,7 @@ function playFuturisticSound(type) {
 }
 
 /* ==========================================================================
-   5. TYPEWRITER EFFECT
+   6. TYPEWRITER EFFECT
    ========================================================================== */
 function initTypewriter() {
   const el = document.getElementById('typewriter');
@@ -415,7 +433,7 @@ function initTypewriter() {
 }
 
 /* ==========================================================================
-   6. LIVE AI PULSE FEED STREAMER
+   7. LIVE AI PULSE FEED STREAMER
    ========================================================================== */
 function initAiFeedStreamer() {
   const feedContainer = document.getElementById('feedStream');
@@ -446,7 +464,7 @@ function initAiFeedStreamer() {
 }
 
 /* ==========================================================================
-   7. LIVE AI CONTENT ENGINE DEMO
+   8. LIVE AI CONTENT ENGINE DEMO
    ========================================================================== */
 function initAiContentDemo() {
   const brandInput = document.getElementById('brandInput');
@@ -524,7 +542,7 @@ function initAiContentDemo() {
 }
 
 /* ==========================================================================
-   8. AI ROI ESTIMATOR
+   9. AI ROI ESTIMATOR
    ========================================================================== */
 function initRoiCalculator() {
   const budgetSlider = document.getElementById('budgetSlider');
@@ -570,7 +588,7 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   9. INSTANT AD ACCOUNT HEALTH ANALYZER
+   10. INSTANT AD ACCOUNT HEALTH ANALYZER
    ========================================================================== */
 function runAccountHealthAudit() {
   const spend = parseFloat(document.getElementById('healthMonthlySpend').value) || 20000;
@@ -602,7 +620,7 @@ function runAccountHealthAudit() {
 }
 
 /* ==========================================================================
-   10. PLAYBOOK DOWNLOAD HANDLER
+   11. PLAYBOOK DOWNLOAD HANDLER
    ========================================================================== */
 function downloadPlaybook(title) {
   showToast(`📥 Downloading "${title}" Strategy Blueprint...`);
@@ -612,7 +630,7 @@ function downloadPlaybook(title) {
 }
 
 /* ==========================================================================
-   11. CASE STUDY TABS
+   12. CASE STUDY TABS
    ========================================================================== */
 function initCaseStudyTabs() {
   const tabBtns = document.querySelectorAll('.case-filter-tabs .tab-btn');
@@ -638,7 +656,7 @@ function initCaseStudyTabs() {
 }
 
 /* ==========================================================================
-   12. PRICING TOGGLE
+   13. PRICING TOGGLE
    ========================================================================== */
 function initPricingToggle() {
   const switchBtn = document.getElementById('pricingSwitch');
@@ -670,7 +688,7 @@ function initPricingToggle() {
 }
 
 /* ==========================================================================
-   13. NAVBAR SCROLL
+   14. NAVBAR SCROLL
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -684,7 +702,7 @@ function initNavbarScroll() {
 }
 
 /* ==========================================================================
-   14. MODAL AUDIT WIZARD
+   15. MODAL AUDIT WIZARD
    ========================================================================== */
 function openAuditModal() {
   const modal = document.getElementById('auditModal');
@@ -719,7 +737,7 @@ function submitAuditForm(e) {
 }
 
 /* ==========================================================================
-   15. FAQ ACCORDION
+   16. FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -738,7 +756,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   16. TOAST STREAMER
+   17. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');

@@ -231,9 +231,10 @@ body {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 section {
@@ -354,12 +355,12 @@ section {
 }
 
 .btn-sm {
-  padding: 8px 18px;
+  padding: 8px 16px;
   font-size: 0.85rem;
 }
 
 /* ==========================================================================
-   NAVIGATION BAR & CONTROLS (SPACIOUS & EXPANDED)
+   NAVIGATION BAR & CONTROLS
    ========================================================================== */
 .navbar {
   position: fixed;
@@ -384,7 +385,9 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .brand-logo {
@@ -392,7 +395,7 @@ section {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  margin-right: 28px;
+  margin-right: 16px;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -424,7 +427,7 @@ section {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   list-style: none;
   white-space: nowrap;
   flex-shrink: 1;
@@ -434,7 +437,7 @@ section {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   white-space: nowrap;
   transition: color var(--transition-fast);
 }
@@ -446,14 +449,14 @@ section {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .sound-toggle {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
   background: var(--bg-glass-strong);
   border: 1px solid var(--border-subtle);
@@ -473,13 +476,13 @@ section {
 
 /* Language Selector */
 .lang-select {
-  padding: 7px 12px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   background: var(--bg-glass-strong);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   outline: none;
   cursor: pointer;
@@ -505,6 +508,8 @@ section {
   color: var(--text-primary);
   font-size: 1.3rem;
   cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1675,11 +1680,44 @@ section {
   color: var(--text-primary);
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1180px) {
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (SAFE NAVBAR & NO OVERFLOW)
+   ========================================================================== */
+@media (max-width: 1280px) {
   .nav-links { gap: 14px; }
-  .nav-link { font-size: 0.8rem; }
-  .brand-logo { margin-right: 14px; }
+  .nav-link { font-size: 0.82rem; }
+  .brand-logo { margin-right: 12px; }
+}
+
+@media (max-width: 1140px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100vw;
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    display: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  body.light-theme .nav-links {
+    background: #ffffff;
+    border-bottom-color: #e4e4e7;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1689,11 +1727,6 @@ section {
   .comparison-header-row, .comparison-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: block; }
-}
-
 @media (max-width: 768px) {
   .services-grid, .pricing-grid, .testimonials-grid, .case-studies-grid, .pipeline-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1701,4 +1734,7 @@ section {
 
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
+  .nav-actions { gap: 6px; }
+  .btn-sm { padding: 7px 12px; font-size: 0.78rem; }
+  .lang-select { padding: 5px 8px; font-size: 0.78rem; }
 }
