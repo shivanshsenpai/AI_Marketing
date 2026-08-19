@@ -1,11 +1,13 @@
 /* ==========================================================================
    SHIVSPILL - NEXT-GEN AI MARKETING AGENCY
-   Theme: High-Contrast Minimalist Monochrome Architecture
+   Theme: Minimalist Monochrome Architecture + Light/Dark Theme & i18n Engine
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNeuralCanvas();
   initSoundEngine();
+  initThemeToggle();
+  initLanguageSelector();
   initTypewriter();
   initAiFeedStreamer();
   initAiContentDemo();
@@ -18,7 +20,178 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
+   1. LIGHT / DARK THEME TOGGLE ENGINE
+   ========================================================================== */
+function initThemeToggle() {
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  if (!themeToggleBtn || !themeIcon) return;
+
+  const savedTheme = localStorage.getItem('shivspill_theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+    themeIcon.className = 'fa-solid fa-sun';
+  }
+
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+
+    themeIcon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('shivspill_theme', isLight ? 'light' : 'dark');
+
+    showToast(isLight ? '☀️ Switched to Light Theme' : '🌙 Switched to Dark Theme');
+  });
+}
+
+/* ==========================================================================
+   2. MULTI-LANGUAGE TRANSLATION ENGINE (EN, ES, DE, JA, HI)
+   ========================================================================== */
+const translations = {
+  en: {
+    nav_services: "Services",
+    nav_pipeline: "AI Pipeline",
+    nav_comparison: "Comparison",
+    nav_analyzer: "Health Analyzer",
+    nav_sandbox: "AI Sandbox",
+    nav_calculator: "ROI Calculator",
+    nav_playbooks: "Playbooks",
+    nav_pricing: "Pricing",
+    nav_faq: "FAQ",
+    nav_cta: "Book AI Audit",
+    hero_badge: "ShivSpill Neural Engine v4.2 Live",
+    hero_title_prefix: "Architecting",
+    hero_title_gradient: "Viral Growth",
+    hero_title_with: "with",
+    hero_desc: "We combine autonomous neural ad algorithms, predictive audience sculpting, and generative content engines to scale direct-to-consumer and enterprise brands to 8-figure revenues.",
+    hero_primary_btn: "Claim Free $5K AI Growth Plan",
+    hero_secondary_btn: "Test AI Sandbox",
+    stat_1_label: "Client Ad Revenue",
+    stat_2_label: "Average ROAS",
+    stat_3_label: "Prediction Accuracy"
+  },
+  es: {
+    nav_services: "Servicios",
+    nav_pipeline: "Tubería IA",
+    nav_comparison: "Comparativa",
+    nav_analyzer: "Analizador",
+    nav_sandbox: "Demostración IA",
+    nav_calculator: "Calculadora ROI",
+    nav_playbooks: "Manuales",
+    nav_pricing: "Precios",
+    nav_faq: "Preguntas",
+    nav_cta: "Auditoría IA",
+    hero_badge: "Motor Neuronal ShivSpill v4.2 Activo",
+    hero_title_prefix: "Diseñando",
+    hero_title_gradient: "Crecimiento Viral",
+    hero_title_with: "con",
+    hero_desc: "Combinamos algoritmos publicitarios neuronales autónomos y motores de contenido generativo para escalar marcas a ingresos de 8 cifras.",
+    hero_primary_btn: "Obtener Plan de $5k Gratis",
+    hero_secondary_btn: "Probar Sandbox IA",
+    stat_1_label: "Ingresos Publicitarios",
+    stat_2_label: "ROAS Promedio",
+    stat_3_label: "Precisión Predictiva"
+  },
+  de: {
+    nav_services: "Leistungen",
+    nav_pipeline: "KI-Pipeline",
+    nav_comparison: "Vergleich",
+    nav_analyzer: "Analyse-Tool",
+    nav_sandbox: "KI-Sandbox",
+    nav_calculator: "ROI-Rechner",
+    nav_playbooks: "Leitfäden",
+    nav_pricing: "Preise",
+    nav_faq: "FAQ",
+    nav_cta: "KI-Audit Buchen",
+    hero_badge: "ShivSpill Neuronale Engine v4.2 Live",
+    hero_title_prefix: "Entwicklung von",
+    hero_title_gradient: "Viralem Wachstum",
+    hero_title_with: "mit",
+    hero_desc: "Wir kombinieren autonome neuronale Werbealgorithmen und KI-Content-Engines, um Marken auf 8-stellige Umsätze zu skalieren.",
+    hero_primary_btn: "Gratis $5k KI-Plan Sichern",
+    hero_secondary_btn: "KI-Sandbox Testen",
+    stat_1_label: "Kunden-Werbeumsatz",
+    stat_2_label: "Durchschnittlicher ROAS",
+    stat_3_label: "Vorhersagegenauigkeit"
+  },
+  ja: {
+    nav_services: "サービス",
+    nav_pipeline: "AIパイプライン",
+    nav_comparison: "比較表",
+    nav_analyzer: "診断ツール",
+    nav_sandbox: "AIサンドボックス",
+    nav_calculator: "ROI計算機",
+    nav_playbooks: "プレイブック",
+    nav_pricing: "料金プラン",
+    nav_faq: "よくある質問",
+    nav_cta: "AI診断を予約",
+    hero_badge: "ShivSpill ニューラルエンジン v4.2稼働中",
+    hero_title_prefix: "次世代の",
+    hero_title_gradient: "バイラル成長を",
+    hero_title_with: "構築する",
+    hero_desc: "自律型AI広告アルゴリズムと生成コンテンツエンジンを組み合わせ、ブランドの収益を8桁スケールに成長させます。",
+    hero_primary_btn: "$5,000相当のAI成長プランを取得",
+    hero_secondary_btn: "AIサンドボックスを試す",
+    stat_1_label: "広告売上実績",
+    stat_2_label: "平均ROAS",
+    stat_3_label: "予測精度"
+  },
+  hi: {
+    nav_services: "सेवाएं",
+    nav_pipeline: "एआई पाइपलाइन",
+    nav_comparison: "तुलना",
+    nav_analyzer: "स्वास्थ्य विश्लेषक",
+    nav_sandbox: "एआई सैंडबॉक्स",
+    nav_calculator: "आरओआई कैलकुलेटर",
+    nav_playbooks: "प्लेबुक्स",
+    nav_pricing: "मूल्य निर्धारण",
+    nav_faq: "प्रश्न और उत्तर",
+    nav_cta: "एआई ऑडिट बुक करें",
+    hero_badge: "शिवस्पिल न्यूरल इंजन v4.2 लाइव",
+    hero_title_prefix: "डिजाइनिंग",
+    hero_title_gradient: "वायरल ग्रोथ",
+    hero_title_with: "के साथ",
+    hero_desc: "हम ब्रांडों को 8-अंकीय राजस्व तक ले जाने के लिए स्वायत्त न्यूरल विज्ञापन एल्गोरिदम और जेनेरेटिव एआई का संयोजन करते हैं।",
+    hero_primary_btn: "$5k मुफ़्त एआई ग्रोथ प्लान पाएं",
+    hero_secondary_btn: "एआई सैंडबॉक्स टेस्ट करें",
+    stat_1_label: "क्लाइंट विज्ञापन राजस्व",
+    stat_2_label: "औसत ROAS",
+    stat_3_label: "पूर्वानुमान सटीकता"
+  }
+};
+
+let currentLang = 'en';
+
+function initLanguageSelector() {
+  const langSelect = document.getElementById('langSelect');
+  if (!langSelect) return;
+
+  const savedLang = localStorage.getItem('shivspill_lang') || 'en';
+  langSelect.value = savedLang;
+  setLanguage(savedLang);
+
+  langSelect.addEventListener('change', (e) => {
+    const selectedLang = e.target.value;
+    setLanguage(selectedLang);
+    localStorage.setItem('shivspill_lang', selectedLang);
+    showToast(`🌐 Language updated to ${selectedLang.toUpperCase()}`);
+  });
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const dict = translations[lang] || translations['en'];
+
+  document.querySelectorAll('[data-i18n]').forEach(elem => {
+    const key = elem.getAttribute('data-i18n');
+    if (dict[key]) {
+      elem.textContent = dict[key];
+    }
+  });
+}
+
+/* ==========================================================================
+   3. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
    ========================================================================== */
 function initNeuralCanvas() {
   const canvas = document.getElementById('neural-canvas');
@@ -115,7 +288,7 @@ function initNeuralCanvas() {
 }
 
 /* ==========================================================================
-   2. REFINED AUDIO FEEDBACK ENGINE
+   4. REFINED AUDIO FEEDBACK ENGINE
    ========================================================================== */
 let audioCtx = null;
 let soundEnabled = false;
@@ -137,7 +310,7 @@ function initSoundEngine() {
         audioCtx.resume();
       }
       soundIcon.className = 'fa-solid fa-volume-high';
-      soundIcon.style.color = '#ffffff';
+      soundIcon.style.color = 'var(--text-primary)';
       playFuturisticSound('enable');
     } else {
       soundIcon.className = 'fa-solid fa-volume-xmark';
@@ -196,7 +369,7 @@ function playFuturisticSound(type) {
 }
 
 /* ==========================================================================
-   3. TYPEWRITER EFFECT
+   5. TYPEWRITER EFFECT
    ========================================================================== */
 function initTypewriter() {
   const el = document.getElementById('typewriter');
@@ -242,7 +415,7 @@ function initTypewriter() {
 }
 
 /* ==========================================================================
-   4. LIVE AI PULSE FEED STREAMER
+   6. LIVE AI PULSE FEED STREAMER
    ========================================================================== */
 function initAiFeedStreamer() {
   const feedContainer = document.getElementById('feedStream');
@@ -273,7 +446,7 @@ function initAiFeedStreamer() {
 }
 
 /* ==========================================================================
-   5. LIVE AI CONTENT ENGINE DEMO
+   7. LIVE AI CONTENT ENGINE DEMO
    ========================================================================== */
 function initAiContentDemo() {
   const brandInput = document.getElementById('brandInput');
@@ -351,7 +524,7 @@ function initAiContentDemo() {
 }
 
 /* ==========================================================================
-   6. AI ROI ESTIMATOR
+   8. AI ROI ESTIMATOR
    ========================================================================== */
 function initRoiCalculator() {
   const budgetSlider = document.getElementById('budgetSlider');
@@ -397,7 +570,7 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   7. INSTANT AD ACCOUNT HEALTH & AUDIT ANALYZER TOOL (NEW)
+   9. INSTANT AD ACCOUNT HEALTH ANALYZER
    ========================================================================== */
 function runAccountHealthAudit() {
   const spend = parseFloat(document.getElementById('healthMonthlySpend').value) || 20000;
@@ -411,7 +584,6 @@ function runAccountHealthAudit() {
     btn.disabled = false;
     btn.innerHTML = `<i class="fa-solid fa-stethoscope"></i> <span>Run Instant AI Diagnostic</span>`;
 
-    // Dynamic calculations
     const wastedBudgetPct = Math.min(Math.max(Math.round((3.5 - roas) * 22 + 15), 12), 48);
     const unlockableRoasVal = (roas * 1.85).toFixed(2);
     const healthScore = Math.min(Math.max(Math.round(roas * 28), 35), 92);
@@ -430,7 +602,7 @@ function runAccountHealthAudit() {
 }
 
 /* ==========================================================================
-   8. PLAYBOOK DOWNLOAD HANDLER (NEW)
+   10. PLAYBOOK DOWNLOAD HANDLER
    ========================================================================== */
 function downloadPlaybook(title) {
   showToast(`📥 Downloading "${title}" Strategy Blueprint...`);
@@ -440,7 +612,7 @@ function downloadPlaybook(title) {
 }
 
 /* ==========================================================================
-   9. CASE STUDY TABS
+   11. CASE STUDY TABS
    ========================================================================== */
 function initCaseStudyTabs() {
   const tabBtns = document.querySelectorAll('.case-filter-tabs .tab-btn');
@@ -466,7 +638,7 @@ function initCaseStudyTabs() {
 }
 
 /* ==========================================================================
-   10. PRICING TOGGLE
+   12. PRICING TOGGLE
    ========================================================================== */
 function initPricingToggle() {
   const switchBtn = document.getElementById('pricingSwitch');
@@ -498,7 +670,7 @@ function initPricingToggle() {
 }
 
 /* ==========================================================================
-   11. NAVBAR SCROLL
+   13. NAVBAR SCROLL
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -512,7 +684,7 @@ function initNavbarScroll() {
 }
 
 /* ==========================================================================
-   12. MODAL AUDIT WIZARD
+   14. MODAL AUDIT WIZARD
    ========================================================================== */
 function openAuditModal() {
   const modal = document.getElementById('auditModal');
@@ -547,7 +719,7 @@ function submitAuditForm(e) {
 }
 
 /* ==========================================================================
-   13. FAQ ACCORDION
+   15. FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -566,7 +738,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   14. TOAST STREAMER
+   16. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');
