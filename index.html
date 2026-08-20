@@ -54,6 +54,7 @@
         <li><a href="#pipeline" class="nav-link" data-i18n="nav_pipeline">Pipeline</a></li>
         <li><a href="#comparison" class="nav-link" data-i18n="nav_comparison">Comparison</a></li>
         <li><a href="#analyzer" class="nav-link" data-i18n="nav_analyzer">Analyzer</a></li>
+        <li><a href="#allocator" class="nav-link" data-i18n="nav_allocator">Allocator</a></li>
         <li><a href="#ai-engine" class="nav-link" data-i18n="nav_sandbox">Sandbox</a></li>
         <li><a href="#calculator" class="nav-link" data-i18n="nav_calculator">Calculator</a></li>
         <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a></li>
@@ -510,6 +511,100 @@
   </section>
 
   <!-- ==========================================================================
+     NEW: AUTONOMOUS BUDGET ALLOCATOR SIMULATOR (NEW FEATURE)
+     ========================================================================== -->
+  <section id="allocator">
+    <div class="container reveal-on-scroll">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Autonomous AI Rebalancing</span>
+        </div>
+        <h2 class="section-title">Media Budget <span class="text-gradient">Allocation Simulator</span></h2>
+        <p class="section-subtitle">Simulate real-time capital distribution across ad channels and test ShivSpill's AI auto-optimization engine.</p>
+      </div>
+
+      <div class="roi-calculator-grid">
+        <!-- Allocator Controls -->
+        <div class="glass-card calc-inputs-card">
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span class="form-label"><i class="fa-brands fa-meta"></i> Meta Ads (Advantage+)</span>
+              <span class="slider-value" id="allocMetaVal">40%</span>
+            </div>
+            <input type="range" id="allocMeta" class="custom-slider" min="0" max="100" value="40" oninput="updateAllocator()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span class="form-label"><i class="fa-brands fa-google"></i> Google Performance Max</span>
+              <span class="slider-value" id="allocGoogleVal">30%</span>
+            </div>
+            <input type="range" id="allocGoogle" class="custom-slider" min="0" max="100" value="30" oninput="updateAllocator()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span class="form-label"><i class="fa-brands fa-tiktok"></i> TikTok Spark Ads</span>
+              <span class="slider-value" id="allocTiktokVal">20%</span>
+            </div>
+            <input type="range" id="allocTiktok" class="custom-slider" min="0" max="100" value="20" oninput="updateAllocator()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span class="form-label"><i class="fa-brands fa-linkedin"></i> LinkedIn B2B ABM</span>
+              <span class="slider-value" id="allocLinkedinVal">10%</span>
+            </div>
+            <input type="range" id="allocLinkedin" class="custom-slider" min="0" max="100" value="10" oninput="updateAllocator()">
+          </div>
+
+          <button class="btn btn-primary" id="autoOptimizeBtn" onclick="autoOptimizeAllocator()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Auto-Optimize with ShivSpill AI</span>
+          </button>
+        </div>
+
+        <!-- Output Visualization Card -->
+        <div class="glass-card calc-results-card shimmer-border">
+          <div>
+            <div class="output-header" style="padding-bottom: 10px; margin-bottom: 14px;">
+              <span class="badge" style="margin-bottom: 0;">Predicted Yield</span>
+              <span class="dashboard-tag" id="allocStatusTag">Status: Optimal Allocation</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;">
+              Channel Synergy Metrics
+            </h3>
+          </div>
+
+          <div class="results-grid" style="margin-top: 16px;">
+            <div class="result-metric">
+              <div class="form-label">Est. Blended ROAS</div>
+              <div class="result-val text-gradient" id="allocRoas">5.12x</div>
+            </div>
+            <div class="result-metric">
+              <div class="form-label">CPA Efficiency</div>
+              <div class="result-val" id="allocCpa" style="color: var(--accent-emerald);">-62.4%</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(9, 9, 11, 0.8); border: 1px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); margin-top: 16px;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 4px;">🎯 Neural Bidding Recommendation:</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);" id="allocAdvice">
+              Meta Advantage+ and TikTok Spark Ads show 4.2x audience synergy. Increasing Meta to 50% yields +18.4% additional ROAS.
+            </p>
+          </div>
+
+          <button class="btn btn-secondary" style="margin-top: 16px; width: 100%;" onclick="openAuditModal()">
+            <span>Deploy AI Allocation Matrix</span>
+            <i class="fa-solid fa-rocket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
      LIVE INTERACTIVE AI CONTENT ENGINE DEMO
      ========================================================================== -->
   <section id="ai-engine">
@@ -655,6 +750,82 @@
           <button class="btn btn-primary" style="margin-top: 24px; width: 100%;" onclick="openAuditModal()">
             <span>Lock In These Projections</span>
             <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     NEW: INTERACTIVE AD OPS READINESS CHECKLIST (NEW FEATURE)
+     ========================================================================== -->
+  <section id="readiness">
+    <div class="container reveal-on-scroll">
+      <div class="section-header">
+        <div class="badge">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Growth Readiness Index</span>
+        </div>
+        <h2 class="section-title">Ad Operations <span class="text-gradient">Readiness Checklist</span></h2>
+        <p class="section-subtitle">Check your current setup dimensions to compute your real-time AI Scaling Index score.</p>
+      </div>
+
+      <div class="roi-calculator-grid">
+        <div class="glass-card calc-inputs-card">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <label class="glass-card" style="padding: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; border-color: var(--border-subtle);">
+              <input type="checkbox" class="readiness-check" checked onchange="updateReadinessScore()">
+              <span>Server-Side CAPI Pixel Tracking Enabled (iOS 17+ Proof)</span>
+            </label>
+
+            <label class="glass-card" style="padding: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; border-color: var(--border-subtle);">
+              <input type="checkbox" class="readiness-check" checked onchange="updateReadinessScore()">
+              <span>20+ UGC Video Creative Variants Tested Weekly</span>
+            </label>
+
+            <label class="glass-card" style="padding: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; border-color: var(--border-subtle);">
+              <input type="checkbox" class="readiness-check" onchange="updateReadinessScore()">
+              <span>Real-Time Bidding & Sub-Second Media Reallocation</span>
+            </label>
+
+            <label class="glass-card" style="padding: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; border-color: var(--border-subtle);">
+              <input type="checkbox" class="readiness-check" onchange="updateReadinessScore()">
+              <span>Dynamic Ad-to-Landing Page Personalization</span>
+            </label>
+
+            <label class="glass-card" style="padding: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; border-color: var(--border-subtle);">
+              <input type="checkbox" class="readiness-check" checked onchange="updateReadinessScore()">
+              <span>Instant Conversational Lead Nurturing (&lt;5 Seconds Response)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="glass-card calc-results-card shimmer-border">
+          <div>
+            <span class="badge" style="margin-bottom: 8px;">Calculated Index</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;">AI Scaling Readiness</h3>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.88rem; color: var(--text-secondary);">Current Index Score</span>
+              <span id="readinessScoreVal" style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 800; color: #fff;">60%</span>
+            </div>
+            <div style="width: 100%; height: 10px; background: var(--border-subtle); border-radius: var(--radius-full); overflow: hidden;">
+              <div id="readinessProgressBar" style="width: 60%; height: 100%; background: var(--grad-text); transition: width 0.4s ease;"></div>
+            </div>
+          </div>
+
+          <div style="background: rgba(9, 9, 11, 0.8); border: 1px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md);">
+            <div style="font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 4px;">⚡ Evaluation Output:</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);" id="readinessOutputText">
+              Your account has 3 of 5 core AI readiness pillars active. Enabling sub-second bidding can increase ROAS by up to +42%.
+            </p>
+          </div>
+
+          <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="openAuditModal()">
+            <span>Complete 100% AI Integration</span>
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </div>
@@ -1122,6 +1293,8 @@
             <li><a href="#pipeline">AI Pipeline</a></li>
             <li><a href="#comparison">Comparison</a></li>
             <li><a href="#analyzer">Health Analyzer</a></li>
+            <li><a href="#allocator">Budget Allocator</a></li>
+            <li><a href="#readiness">Readiness Check</a></li>
             <li><a href="#playbooks">Playbooks</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>

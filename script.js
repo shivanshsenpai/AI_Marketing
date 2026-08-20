@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initToastStreamer();
   initFaqAccordion();
+  updateAllocator();
+  updateReadinessScore();
 });
 
 /* ==========================================================================
@@ -54,6 +56,7 @@ const translations = {
     nav_pipeline: "Pipeline",
     nav_comparison: "Comparison",
     nav_analyzer: "Analyzer",
+    nav_allocator: "Allocator",
     nav_sandbox: "Sandbox",
     nav_calculator: "Calculator",
     nav_pricing: "Pricing",
@@ -75,6 +78,7 @@ const translations = {
     nav_pipeline: "Tubería",
     nav_comparison: "Comparativa",
     nav_analyzer: "Analizador",
+    nav_allocator: "Asignador",
     nav_sandbox: "Sandbox",
     nav_calculator: "Calculadora",
     nav_pricing: "Precios",
@@ -96,6 +100,7 @@ const translations = {
     nav_pipeline: "Pipeline",
     nav_comparison: "Vergleich",
     nav_analyzer: "Analyse",
+    nav_allocator: "Allokator",
     nav_sandbox: "Sandbox",
     nav_calculator: "Rechner",
     nav_pricing: "Preise",
@@ -117,6 +122,7 @@ const translations = {
     nav_pipeline: "パイプライン",
     nav_comparison: "比較表",
     nav_analyzer: "診断ツール",
+    nav_allocator: "配分ツール",
     nav_sandbox: "サンドボックス",
     nav_calculator: "計算機",
     nav_pricing: "料金",
@@ -138,6 +144,7 @@ const translations = {
     nav_pipeline: "पाइपलाइन",
     nav_comparison: "तुलना",
     nav_analyzer: "विश्लेषक",
+    nav_allocator: "बजट आवंटक",
     nav_sandbox: "सैंडबॉक्स",
     nav_calculator: "कैलकुलेटर",
     nav_pricing: "मूल्य",
@@ -209,7 +216,89 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   4. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
+   4. AUTONOMOUS MEDIA BUDGET ALLOCATOR SIMULATOR (NEW)
+   ========================================================================== */
+function updateAllocator() {
+  const meta = parseFloat(document.getElementById('allocMeta')?.value || 40);
+  const google = parseFloat(document.getElementById('allocGoogle')?.value || 30);
+  const tiktok = parseFloat(document.getElementById('allocTiktok')?.value || 20);
+  const linkedin = parseFloat(document.getElementById('allocLinkedin')?.value || 10);
+
+  if (document.getElementById('allocMetaVal')) document.getElementById('allocMetaVal').textContent = `${meta}%`;
+  if (document.getElementById('allocGoogleVal')) document.getElementById('allocGoogleVal').textContent = `${google}%`;
+  if (document.getElementById('allocTiktokVal')) document.getElementById('allocTiktokVal').textContent = `${tiktok}%`;
+  if (document.getElementById('allocLinkedinVal')) document.getElementById('allocLinkedinVal').textContent = `${linkedin}%`;
+
+  // Calculated blended yield metrics
+  const totalWeight = meta + google + tiktok + linkedin;
+  const roasMultiplier = (
+    (meta * 5.4 + google * 4.6 + tiktok * 5.1 + linkedin * 3.8) / (totalWeight || 100)
+  ).toFixed(2);
+  const cpaSavings = (
+    (meta * 0.65 + google * 0.52 + tiktok * 0.60 + linkedin * 0.42) / (totalWeight || 100) * 100
+  ).toFixed(1);
+
+  if (document.getElementById('allocRoas')) document.getElementById('allocRoas').textContent = `${roasMultiplier}x`;
+  if (document.getElementById('allocCpa')) document.getElementById('allocCpa').textContent = `-${cpaSavings}%`;
+}
+
+function autoOptimizeAllocator() {
+  const btn = document.getElementById('autoOptimizeBtn');
+  if (!btn) return;
+
+  btn.disabled = true;
+  btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Neural Rebalancing...`;
+
+  setTimeout(() => {
+    document.getElementById('allocMeta').value = 45;
+    document.getElementById('allocGoogle').value = 35;
+    document.getElementById('allocTiktok').value = 15;
+    document.getElementById('allocLinkedin').value = 5;
+
+    updateAllocator();
+
+    btn.disabled = false;
+    btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> <span>Auto-Optimize with ShivSpill AI</span>`;
+
+    document.getElementById('allocStatusTag').textContent = 'Status: 100% Neural Synergy';
+    document.getElementById('allocAdvice').textContent = '✨ Optimal 45/35/15/5 allocation locked! Blended ROAS maximized at 5.28x with minimal ad spend waste.';
+
+    showToast('⚡ Media Allocation auto-optimized by AI!');
+  }, 600);
+}
+
+/* ==========================================================================
+   5. AD OPS READINESS CHECKLIST (NEW)
+   ========================================================================== */
+function updateReadinessScore() {
+  const checks = document.querySelectorAll('.readiness-check');
+  let checkedCount = 0;
+
+  checks.forEach(c => {
+    if (c.checked) checkedCount++;
+  });
+
+  const pct = Math.round((checkedCount / checks.length) * 100);
+  const scoreVal = document.getElementById('readinessScoreVal');
+  const bar = document.getElementById('readinessProgressBar');
+  const outputText = document.getElementById('readinessOutputText');
+
+  if (scoreVal) scoreVal.textContent = `${pct}%`;
+  if (bar) bar.style.width = `${pct}%`;
+
+  if (outputText) {
+    if (pct === 100) {
+      outputText.textContent = '🚀 Elite 100% AI Scaling Readiness! Your infrastructure is fully primed for 8-figure campaign acceleration.';
+    } else if (pct >= 60) {
+      outputText.textContent = `Your account has ${checkedCount} of ${checks.length} core AI readiness pillars active. Enabling real-time bidding will push ROAS +42%.`;
+    } else {
+      outputText.textContent = `Warning: Only ${checkedCount} of ${checks.length} pillars active. Substantial budget leakage present. Deploy CAPI and auto-bidding immediately.`;
+    }
+  }
+}
+
+/* ==========================================================================
+   6. MINIMALIST MONOCHROME CANVAS PARTICLE SYSTEM
    ========================================================================== */
 function initNeuralCanvas() {
   const canvas = document.getElementById('neural-canvas');
@@ -306,7 +395,7 @@ function initNeuralCanvas() {
 }
 
 /* ==========================================================================
-   5. REFINED AUDIO FEEDBACK ENGINE
+   7. REFINED AUDIO FEEDBACK ENGINE
    ========================================================================== */
 let audioCtx = null;
 let soundEnabled = false;
@@ -387,7 +476,7 @@ function playFuturisticSound(type) {
 }
 
 /* ==========================================================================
-   6. TYPEWRITER EFFECT
+   8. TYPEWRITER EFFECT
    ========================================================================== */
 function initTypewriter() {
   const el = document.getElementById('typewriter');
@@ -433,7 +522,7 @@ function initTypewriter() {
 }
 
 /* ==========================================================================
-   7. LIVE AI PULSE FEED STREAMER
+   9. LIVE AI PULSE FEED STREAMER
    ========================================================================== */
 function initAiFeedStreamer() {
   const feedContainer = document.getElementById('feedStream');
@@ -464,7 +553,7 @@ function initAiFeedStreamer() {
 }
 
 /* ==========================================================================
-   8. LIVE AI CONTENT ENGINE DEMO
+   10. LIVE AI CONTENT ENGINE DEMO
    ========================================================================== */
 function initAiContentDemo() {
   const brandInput = document.getElementById('brandInput');
@@ -542,7 +631,7 @@ function initAiContentDemo() {
 }
 
 /* ==========================================================================
-   9. AI ROI ESTIMATOR
+   11. AI ROI ESTIMATOR
    ========================================================================== */
 function initRoiCalculator() {
   const budgetSlider = document.getElementById('budgetSlider');
@@ -588,7 +677,7 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   10. INSTANT AD ACCOUNT HEALTH ANALYZER
+   12. INSTANT AD ACCOUNT HEALTH ANALYZER
    ========================================================================== */
 function runAccountHealthAudit() {
   const spend = parseFloat(document.getElementById('healthMonthlySpend').value) || 20000;
@@ -620,7 +709,7 @@ function runAccountHealthAudit() {
 }
 
 /* ==========================================================================
-   11. PLAYBOOK DOWNLOAD HANDLER
+   13. PLAYBOOK DOWNLOAD HANDLER
    ========================================================================== */
 function downloadPlaybook(title) {
   showToast(`📥 Downloading "${title}" Strategy Blueprint...`);
@@ -630,7 +719,7 @@ function downloadPlaybook(title) {
 }
 
 /* ==========================================================================
-   12. CASE STUDY TABS
+   14. CASE STUDY TABS
    ========================================================================== */
 function initCaseStudyTabs() {
   const tabBtns = document.querySelectorAll('.case-filter-tabs .tab-btn');
@@ -656,7 +745,7 @@ function initCaseStudyTabs() {
 }
 
 /* ==========================================================================
-   13. PRICING TOGGLE
+   15. PRICING TOGGLE
    ========================================================================== */
 function initPricingToggle() {
   const switchBtn = document.getElementById('pricingSwitch');
@@ -688,7 +777,7 @@ function initPricingToggle() {
 }
 
 /* ==========================================================================
-   14. NAVBAR SCROLL
+   16. NAVBAR SCROLL
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -702,7 +791,7 @@ function initNavbarScroll() {
 }
 
 /* ==========================================================================
-   15. MODAL AUDIT WIZARD
+   17. MODAL AUDIT WIZARD
    ========================================================================== */
 function openAuditModal() {
   const modal = document.getElementById('auditModal');
@@ -737,7 +826,7 @@ function submitAuditForm(e) {
 }
 
 /* ==========================================================================
-   16. FAQ ACCORDION
+   18. FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -756,7 +845,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   17. TOAST STREAMER
+   19. TOAST STREAMER
    ========================================================================== */
 function showToast(message) {
   const container = document.getElementById('toastContainer');

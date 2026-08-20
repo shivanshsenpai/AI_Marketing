@@ -52,6 +52,8 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 
 ## 🛠️ Interactive Features & Modules
 
+- 🎛️ **Autonomous Media Budget Allocation Simulator (`#allocator`)**: Interactive sliders calculating cross-channel budget allocation (Meta, Google PMax, TikTok, LinkedIn) with instant Blended ROAS yield curve prediction and one-click AI Auto-Optimization.
+- 📋 **Ad Operations Growth Readiness Index (`#readiness`)**: Real-time diagnostic checklist calculating brand AI scaling readiness (0-100%) with dynamic progress bar and evaluation output.
 - 🌗 **Light / Dark Mode Toggle**: Instant theme switching between architectural dark obsidian (`#09090b`) and clean silver-white light mode (`#f4f4f5`) with persistent `localStorage` memory.
 - 🌐 **Multi-Language Translation Engine (i18n)**: Seamless language selector supporting **English (EN)**, **Spanish (ES)**, **German (DE)**, **Japanese (JA)**, and **Hindi (HI)**.
 - 🌌 **Minimalist Monochrome Canvas Engine**: 60fps HTML5 Canvas particle physics system with mouse cursor attraction and spring vector connections.
@@ -61,8 +63,6 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 - 📊 **Financial ROI & Revenue Multiplier Estimator**: Custom range sliders computing projected 90-day revenue, ROAS boost, CPA drop %, and lead volume.
 - 📚 **AI Growth Playbooks Knowledge Hub**: Actionable technical blueprints for Meta Advantage+ scaling, iOS 17+ server CAPI, and B2B intent sculpting.
 - 👥 **Neural Engineering Team & Advisory Board**: Minimalist profile cards showcasing AI architects and quantitative bidding researchers.
-- 🎵 **Web Audio API Feedback Synthesizer**: Native browser AudioContext sound generator providing soft micro-click and cyber sweep feedback (toggleable).
-- ❓ **Interactive FAQ Accordion**: Expandable Q&A section addressing onboarding timeline, data privacy, minimum spend, and performance guarantees.
 
 ---
 
