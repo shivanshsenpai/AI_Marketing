@@ -2,23 +2,19 @@
 
 [![ShivSpill Neural Engine](https://img.shields.io/badge/ShivSpill%20AI-v4.2-09090b?style=for-the-badge&logo=openai)](https://github.com/shivanshsenpai/AI_Marketing)
 [![ROAS Multiplier](https://img.shields.io/badge/Avg%20ROAS-4.8x-ffffff?style=for-the-badge&logoColor=000)](https://github.com/shivanshsenpai/AI_Marketing)
-[![Multi-Language](https://img.shields.io/badge/i18n-EN%20%7C%20ES%20%7C%20DE%20%7C%20JA%20%7C%20HI-000000?style=for-the-badge)](https://github.com/shivanshsenpai/AI_Marketing)
-[![Theme](https://img.shields.io/badge/Theme-Light%20%2F%20Dark-27272a?style=for-the-badge)](https://github.com/shivanshsenpai/AI_Marketing)
+[![Founder](https://img.shields.io/badge/Founder-Shivansh%20Sharma-000000?style=for-the-badge&logo=github)](https://github.com/shivanshsenpai)
+[![Contact](https://img.shields.io/badge/Email-shivanshsharma6000%40gmail.com-ea4335?style=for-the-badge&logo=gmail)](mailto:shivanshsharma6000@gmail.com)
 
-**ShivSpill** is a state-of-the-art, high-contrast minimalist dark/light monochrome AI Marketing Agency web application. Engineered for hyper-growth Direct-to-Consumer (D2C) brands, SaaS scaleups, and enterprise businesses, ShivSpill combines generative copy/creative engines, real-time predictive bidding, and sub-second conversion rate optimization (CRO) into a high-performance web platform.
+**ShivSpill** is a state-of-the-art, high-contrast minimalist dark/light monochrome AI Marketing Agency web application. Founded by **Shivansh Sharma**, ShivSpill is engineered for hyper-growth Direct-to-Consumer (D2C) brands, SaaS scaleups, and enterprise businesses, combining generative copy/creative engines, real-time predictive bidding, and sub-second conversion rate optimization (CRO) into a high-performance web platform.
 
 ---
 
-## 📑 Table of Contents
+## 👤 Contact & Founder Info
 
-- [Core Value Proposition](#-core-value-proposition)
-- [System Architecture & 4-Stage AI Pipeline](#-system-architecture--4-stage-ai-pipeline)
-- [Interactive Features & Modules](#-interactive-features--modules)
-- [Technology Stack & API Integrations](#-technology-stack--api-integrations)
-- [Project Directory Structure](#-project-directory-structure)
-- [Getting Started & Local Development](#-getting-started--local-development)
-- [Deployment Guidelines](#-deployment-guidelines)
-- [License & Credits](#-license--credits)
+- **Founder & Chief AI Architect**: Shivansh Sharma
+- **Direct Email**: [shivanshsharma6000@gmail.com](mailto:shivanshsharma6000@gmail.com)
+- **GitHub Profile**: [shivanshsenpai](https://github.com/shivanshsenpai)
+- **GitHub Repository**: [shivanshsenpai/AI_Marketing](https://github.com/shivanshsenpai/AI_Marketing)
 
 ---
 
@@ -30,23 +26,6 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 - 🎨 **Generative Creative Factory**: Synthesizes 500+ micro-copy variations, ad hooks, and video scripts weekly.
 - ⚡ **Sub-Second Bid Controller**: Reallocates media spend across Meta, Google PMax, and TikTok automatically to maximize ROAS.
 - 🛡️ **iOS 17+ Server Attribution**: Uses custom First-Party Identity Resolution to bypass browser cookie tracking limits.
-
----
-
-## 🔬 System Architecture & 4-Stage AI Pipeline
-
-```
-┌─────────────────────────┐     ┌───────────────────────────┐
-│ Stage 1: Data Ingestion │ ──► │ Stage 2: AI Copy Synthesis│
-│ (1M+ Signals/sec)       │     │ (500+ Variants/week)      │
-└─────────────────────────┘     └───────────────────────────┘
-             │                                │
-             ▼                                ▼
-┌─────────────────────────┐     ┌───────────────────────────┐
-│ Stage 3: Bid Controller │ ──► │ Stage 4: CAPI Attribution │
-│ (Sub-second rebalance)  │     │ (iOS 17+ Pixel Proof)     │
-└─────────────────────────┘     └───────────────────────────┘
-```
 
 ---
 
@@ -62,7 +41,7 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 - 🧪 **Live AI Content Engine Simulator**: Interactive sandbox enabling real-time generation of ad scripts, hooks, and hashtags for any brand and target tone.
 - 📊 **Financial ROI & Revenue Multiplier Estimator**: Custom range sliders computing projected 90-day revenue, ROAS boost, CPA drop %, and lead volume.
 - 📚 **AI Growth Playbooks Knowledge Hub**: Actionable technical blueprints for Meta Advantage+ scaling, iOS 17+ server CAPI, and B2B intent sculpting.
-- 👥 **Neural Engineering Team & Advisory Board**: Minimalist profile cards showcasing AI architects and quantitative bidding researchers.
+- 👥 **Neural Engineering Team & Advisory Board**: Minimalist profile cards showcasing founder Shivansh Sharma and quantitative bidding researchers.
 
 ---
 
@@ -94,7 +73,8 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 
 ## 📜 License & Credits
 
-- **Author / Brand**: ShivSpill AI Marketing Agency
+- **Founder & Author**: Shivansh Sharma ([shivanshsharma6000@gmail.com](mailto:shivanshsharma6000@gmail.com))
+- **Brand**: ShivSpill AI Marketing Agency
 - **GitHub Repository**: [shivanshsenpai/AI_Marketing](https://github.com/shivanshsenpai/AI_Marketing)
 - **License**: MIT License
 
