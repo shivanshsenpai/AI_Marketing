@@ -1,11 +1,22 @@
 # ShivSpill — Next-Gen AI Marketing Agency 🚀
 
 [![ShivSpill Neural Engine](https://img.shields.io/badge/ShivSpill%20AI-v4.2-09090b?style=for-the-badge&logo=openai)](https://github.com/shivanshsenpai/AI_Marketing)
+[![PS2 Intro Sequence](https://img.shields.io/badge/Bootup-Retro%20PS2%20Animation-000000?style=for-the-badge&logo=playstation)](https://github.com/shivanshsenpai/AI_Marketing)
 [![ROAS Multiplier](https://img.shields.io/badge/Avg%20ROAS-4.8x-ffffff?style=for-the-badge&logoColor=000)](https://github.com/shivanshsenpai/AI_Marketing)
 [![Founder](https://img.shields.io/badge/Founder-Shivansh%20Sharma-000000?style=for-the-badge&logo=github)](https://github.com/shivanshsenpai)
 [![Contact](https://img.shields.io/badge/Email-shivanshsharma6000%40gmail.com-ea4335?style=for-the-badge&logo=gmail)](mailto:shivanshsharma6000@gmail.com)
 
 **ShivSpill** is a state-of-the-art, high-contrast minimalist dark/light monochrome AI Marketing Agency web application. Founded by **Shivansh Sharma**, ShivSpill is engineered for hyper-growth Direct-to-Consumer (D2C) brands, SaaS scaleups, and enterprise businesses, combining generative copy/creative engines, real-time predictive bidding, and sub-second conversion rate optimization (CRO) into a high-performance web platform.
+
+---
+
+## 🎮 Retro PS2 Bootup Screen
+
+ShivSpill features an iconic **Retro PlayStation 2 (PS2) Pixelated Boot Sequence**:
+- **Monochrome 3D Floating Memory Pillars**: Custom pseudo-3D canvas physics engine rendering floating memory blocks amidst CRT scanline fog.
+- **Retro System Diagnostic**: Real-time console terminal logs initializing system vector RAM and checking $10,000 agency data memory card slots.
+- **Audio Feedback**: Deep synthesized boot chime via Web Audio API.
+- **Skip & Replay Controls**: Press `ESC` or click anywhere to skip, or click the Gamepad icon in the navbar / footer to replay the boot animation anytime!
 
 ---
 
@@ -31,6 +42,7 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 
 ## 🛠️ Interactive Features & Modules
 
+- 🎮 **Retro PS2 Bootup Animation**: Iconic PS2 startup sequence with 3D memory pillars, CRT scanlines, and audio feedback.
 - 🎛️ **Autonomous Media Budget Allocation Simulator (`#allocator`)**: Interactive sliders calculating cross-channel budget allocation (Meta, Google PMax, TikTok, LinkedIn) with instant Blended ROAS yield curve prediction and one-click AI Auto-Optimization.
 - 📋 **Ad Operations Growth Readiness Index (`#readiness`)**: Real-time diagnostic checklist calculating brand AI scaling readiness (0-100%) with dynamic progress bar and evaluation output.
 - 🌗 **Light / Dark Mode Toggle**: Instant theme switching between architectural dark obsidian (`#09090b`) and clean silver-white light mode (`#f4f4f5`) with persistent `localStorage` memory.
@@ -50,7 +62,7 @@ ShivSpill replaces legacy human marketing bottlenecks (slow 7-day creative turna
 | Layer | Technologies |
 |---|---|
 | **Frontend Core** | HTML5 (Semantic, SEO, OpenGraph Tags), CSS3 (Custom Properties, Theme Variables), ES6+ i18n Translation Engine |
-| **Animation & FX** | HTML5 Canvas API (Physics Particle Grid), Web Audio API (Synthesized Audio Tones) |
+| **Animation & FX** | HTML5 3D Canvas Engine (PS2 Pillars & Particle Grid), Web Audio API (Synthesized Audio Tones) |
 | **Localization** | Multi-Language Engine (`en`, `es`, `de`, `ja`, `hi`) with `data-i18n` dictionary mapping |
 | **Typography** | Google Fonts (*Outfit*, *Plus Jakarta Sans*, *JetBrains Mono*) |
 | **Icons & Media** | FontAwesome 6.5.1 Icon Library |

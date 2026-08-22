@@ -1,9 +1,11 @@
 /* ==========================================================================
    SHIVSPILL - NEXT-GEN AI MARKETING AGENCY
    Theme: Minimalist Monochrome Architecture + Light/Dark Theme & i18n Engine
+   Boot: Retro PS2 Pixelated Intro Sequence
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPs2Bootup();
   initNeuralCanvas();
   initSoundEngine();
   initThemeToggle();
@@ -21,6 +23,184 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAllocator();
   updateReadinessScore();
 });
+
+/* ==========================================================================
+   0. RETRO PS2 BOOTUP ANIMATION ENGINE
+   ========================================================================== */
+let ps2AnimationId = null;
+let ps2Skipped = false;
+
+function initPs2Bootup() {
+  const overlay = document.getElementById('ps2BootOverlay');
+  if (!overlay) return;
+
+  const seen = sessionStorage.getItem('shivspill_ps2_seen');
+  if (seen) {
+    overlay.style.display = 'none';
+  } else {
+    triggerPs2Bootup(false);
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.style.display !== 'none' && !ps2Skipped) {
+      skipPs2Bootup();
+    }
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target.id !== 'ps2SkipBtn' && !ps2Skipped) {
+      skipPs2Bootup();
+    }
+  });
+}
+
+function triggerPs2Bootup(forceReplay = false) {
+  const overlay = document.getElementById('ps2BootOverlay');
+  const badge = document.getElementById('ps2Badge');
+  const logoBox = document.getElementById('ps2LogoBox');
+  const line1 = document.getElementById('ps2Line1');
+  const line2 = document.getElementById('ps2Line2');
+  const line3 = document.getElementById('ps2Line3');
+  const line4 = document.getElementById('ps2Line4');
+
+  if (!overlay) return;
+
+  ps2Skipped = false;
+  overlay.style.display = 'flex';
+  overlay.classList.remove('fade-out');
+
+  badge?.classList.remove('visible');
+  logoBox?.classList.remove('visible');
+  line1?.classList.remove('visible');
+  line2?.classList.remove('visible');
+  line3?.classList.remove('visible');
+  line4?.classList.remove('visible');
+
+  startPs2CanvasAnimation();
+  playPs2BootSound();
+
+  // Sequential PS2 Boot Timeline
+  setTimeout(() => { if (!ps2Skipped) badge?.classList.add('visible'); }, 300);
+  setTimeout(() => { if (!ps2Skipped) logoBox?.classList.add('visible'); }, 1000);
+  setTimeout(() => { if (!ps2Skipped) line1?.classList.add('visible'); }, 1700);
+  setTimeout(() => { if (!ps2Skipped) line2?.classList.add('visible'); }, 2200);
+  setTimeout(() => { if (!ps2Skipped) line3?.classList.add('visible'); }, 2700);
+  setTimeout(() => { if (!ps2Skipped) line4?.classList.add('visible'); }, 3200);
+
+  setTimeout(() => {
+    if (!ps2Skipped) {
+      skipPs2Bootup();
+    }
+  }, 4100);
+
+  if (!forceReplay) {
+    sessionStorage.setItem('shivspill_ps2_seen', 'true');
+  }
+}
+
+function skipPs2Bootup() {
+  const overlay = document.getElementById('ps2BootOverlay');
+  if (!overlay || ps2Skipped) return;
+  ps2Skipped = true;
+
+  overlay.classList.add('fade-out');
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    if (ps2AnimationId) cancelAnimationFrame(ps2AnimationId);
+  }, 800);
+}
+
+function startPs2CanvasAnimation() {
+  const canvas = document.getElementById('ps2BootCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
+
+  window.addEventListener('resize', () => {
+    if (!canvas) return;
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const pillars = [];
+  const pillarCount = 20;
+
+  for (let i = 0; i < pillarCount; i++) {
+    pillars.push({
+      x: (Math.random() - 0.5) * width * 1.5,
+      y: Math.random() * height * 0.8 + height * 0.2,
+      z: Math.random() * 500 + 50,
+      w: Math.random() * 40 + 20,
+      h: Math.random() * 180 + 80,
+      speed: Math.random() * 1.5 + 0.8,
+      alpha: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function render() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.22)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.save();
+    ctx.translate(width / 2, height / 2);
+
+    pillars.sort((a, b) => b.z - a.z);
+
+    for (let p of pillars) {
+      p.z -= p.speed;
+      if (p.z <= 10) {
+        p.z = 500;
+        p.x = (Math.random() - 0.5) * width * 1.5;
+      }
+
+      const scale = 300 / p.z;
+      const px = p.x * scale;
+      const py = (p.y - height / 2) * scale + 100;
+      const pw = p.w * scale;
+      const ph = p.h * scale;
+
+      const alpha = Math.min(1, (500 - p.z) / 300) * p.alpha;
+      ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.15})`;
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.55})`;
+      ctx.lineWidth = Math.max(1, 2 * scale);
+
+      ctx.fillRect(px - pw / 2, py - ph, pw, ph);
+      ctx.strokeRect(px - pw / 2, py - ph, pw, ph);
+    }
+
+    ctx.restore();
+
+    if (!ps2Skipped) {
+      ps2AnimationId = requestAnimationFrame(render);
+    }
+  }
+
+  render();
+}
+
+function playPs2BootSound() {
+  if (!soundEnabled || !audioCtx) return;
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(60, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 2.5);
+
+    gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 1.2);
+    gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 3.2);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 3.2);
+  } catch (e) {
+    // Audio Context handles gracefully
+  }
+}
 
 /* ==========================================================================
    1. LIGHT / DARK THEME TOGGLE ENGINE
@@ -216,7 +396,7 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   4. AUTONOMOUS MEDIA BUDGET ALLOCATOR SIMULATOR (NEW)
+   4. AUTONOMOUS MEDIA BUDGET ALLOCATOR SIMULATOR
    ========================================================================== */
 function updateAllocator() {
   const meta = parseFloat(document.getElementById('allocMeta')?.value || 40);
@@ -229,7 +409,6 @@ function updateAllocator() {
   if (document.getElementById('allocTiktokVal')) document.getElementById('allocTiktokVal').textContent = `${tiktok}%`;
   if (document.getElementById('allocLinkedinVal')) document.getElementById('allocLinkedinVal').textContent = `${linkedin}%`;
 
-  // Calculated blended yield metrics
   const totalWeight = meta + google + tiktok + linkedin;
   const roasMultiplier = (
     (meta * 5.4 + google * 4.6 + tiktok * 5.1 + linkedin * 3.8) / (totalWeight || 100)
@@ -268,7 +447,7 @@ function autoOptimizeAllocator() {
 }
 
 /* ==========================================================================
-   5. AD OPS READINESS CHECKLIST (NEW)
+   5. AD OPS READINESS CHECKLIST
    ========================================================================== */
 function updateReadinessScore() {
   const checks = document.querySelectorAll('.readiness-check');

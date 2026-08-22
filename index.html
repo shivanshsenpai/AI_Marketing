@@ -19,6 +19,36 @@
 </head>
 <body>
 
+  <!-- ==========================================================================
+     RETRO PS2 PIXELATED BOOTUP SCREEN OVERLAY
+     ========================================================================== -->
+  <div class="ps2-boot-overlay" id="ps2BootOverlay">
+    <div class="ps2-crt-scanlines"></div>
+    <div class="ps2-vignette"></div>
+    <canvas id="ps2BootCanvas"></canvas>
+
+    <div class="ps2-boot-content">
+      <div class="ps2-system-badge" id="ps2Badge">SHIVSPILL COMPUTER ENTERTAINMENT</div>
+      
+      <div class="ps2-logo-box" id="ps2LogoBox">
+        <h1 class="ps2-logo-text">Shiv<span>Spill</span></h1>
+        <div class="ps2-subtitle-text">NEURAL SYSTEM ARCHITECTURE</div>
+      </div>
+
+      <div class="ps2-terminal-console" id="ps2Console">
+        <div class="ps2-log-line" id="ps2Line1">> SYSTEM INIT... 32MB VECTOR RAM OK</div>
+        <div class="ps2-log-line" id="ps2Line2">> CHECKING MEMORY CARD SLOT 1... [OK: $10,000 AGENCY DATA]</div>
+        <div class="ps2-log-line" id="ps2Line3">> MOUNTING AUTONOMOUS AI ENGINE v4.2...</div>
+        <div class="ps2-log-line" id="ps2Line4">> EXECUTE: LAUNCHING SHIVSPILL REALM...</div>
+      </div>
+
+      <div class="ps2-skip-bar">
+        <span>PRESS ESC / CLICK ANYWHERE TO SKIP</span>
+        <button class="ps2-replay-btn" id="ps2SkipBtn" onclick="skipPs2Bootup()">SKIP ▶</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Futuristic Cursor Ambient Spotlight -->
   <div class="cursor-spotlight" id="cursorSpotlight"></div>
 
@@ -62,6 +92,11 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- Replay PS2 Bootup Button -->
+        <button class="sound-toggle ps2-trigger-btn" id="ps2ReplayBtn" onclick="triggerPs2Bootup(true)" title="Replay PS2 Bootup Animation">
+          <i class="fa-solid fa-gamepad"></i>
+        </button>
+
         <!-- Language Selector Dropdown -->
         <select id="langSelect" class="lang-select" title="Select Language">
           <option value="en">EN 🌐</option>
@@ -1323,7 +1358,7 @@
           <ul class="footer-links">
             <li><a href="mailto:shivanshsharma6000@gmail.com"><i class="fa-solid fa-envelope"></i> shivanshsharma6000@gmail.com</a></li>
             <li><a href="https://github.com/shivanshsenpai/AI_Marketing" target="_blank"><i class="fa-brands fa-github"></i> Shivansh's GitHub</a></li>
-            <li><a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter / X</a></li>
+            <li><a href="#" onclick="triggerPs2Bootup(true); return false;"><i class="fa-solid fa-gamepad"></i> Replay PS2 Bootup</a></li>
             <li><a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
           </ul>
         </div>
